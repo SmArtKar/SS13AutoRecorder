@@ -7,46 +7,36 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Management;
-using System.IO;
-using System.Text.Json;
-using System.Text;
-using OBSWebsocketDotNet;
 
 namespace SS13AutoRecorder
 {
 	internal static class AutoRecorder
-	{
-		/// <summary>List of saved servers</summary>
-		public static List<ServerData> serverData;
-		/// <summary>User settings such as OBS data and user agent</summary>
-		public static SettingsData settings;
-		
+	{		
 		private static Dictionary<string, Type> _serverAPICache;
 		/// <summary>Dictionary of API Type objects per key</summary>
 		public static Dictionary<string, Type> ServerAPIs => _serverAPICache ??= typeof(AutoRecorder).Assembly.GetTypes()
 			.Where(x =>
-            {
-                Type derived = x;
-                do
-                {
-                    derived = derived.BaseType;
-                } while (derived != null && derived != typeof(ServerAPI.ServerAPI));
-                return derived == typeof(ServerAPI.ServerAPI);
-            })
+			{
+				Type derived = x;
+				do
+				{
+					derived = derived.BaseType;
+				} while (derived != null && derived != typeof(ServerAPI.ServerAPI));
+				return derived == typeof(ServerAPI.ServerAPI);
+			})
 			.Where(x => x.GetMethod("APIName").Invoke(null, null) as string != string.Empty)
 			.ToDictionary(x => x.GetMethod("APIName").Invoke(null, null) as string, x => x);
-
-		/// <summary>List of server names to be used as a data source.</summary>
-		public static List<string> ServerListing => serverData?.Select(x => x.Name).ToList();
-
-		public static OBSWebsocket obsSocket;
 
 		[STAThread]
 		static void Main()
 		{
-			ReadServerData();
-			ReadSettingsData();
-            Application.ApplicationExit += new EventHandler(OnApplicationExit);
+			Task.Run(() =>
+			{
+				SettingsHandler.ReadServerData();
+				SettingsHandler.ReadSettingsData();
+			});
+			OBSHandler.InitializeSocket();
+			Application.ApplicationExit += new EventHandler(OnApplicationExit);
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new TrayMenu());
@@ -89,107 +79,10 @@ namespace SS13AutoRecorder
 
 		}
 
-
-		public static void ReadServerData()
-		{
-			FileStream storedServers = null;
-			try
-			{
-				storedServers = new FileStream(Application.LocalUserAppDataPath + "\\userServers.json", FileMode.OpenOrCreate);
-			}
-			catch (IOException e)
-			{
-				ErrorHandle(e, "Unable to read or create the server data file: ");
-				Application.ExitThread();
-			}
-
-			string serversJSON = string.Empty;
-			byte[] buffer = new byte[1024];
-			UTF8Encoding encoding = new UTF8Encoding(true);
-			int bytesRead = 0;
-			while ((bytesRead = storedServers.Read(buffer, 0, buffer.Length)) > 0)
-			{
-				serversJSON += encoding.GetString(buffer, 0, bytesRead);
-			}
-
-			if (serversJSON.Length > 0)
-                serverData = JsonSerializer.Deserialize<List<ServerData>>(serversJSON);
-			else
-				serverData = new List<ServerData>();
-            storedServers.Close();
-		}
-
-		public static void WriteServerData()
-		{
-            FileStream storedServers = null;
-			try
-			{
-				storedServers = new FileStream(Application.LocalUserAppDataPath + "\\userServers.json", FileMode.Create);
-			}
-			catch (IOException e)
-			{
-				ErrorHandle(e, "Unable to save the server data file: ");
-				Application.ExitThread();
-			}
-
-			string serversJSON = JsonSerializer.Serialize(serverData);
-			byte[] buffer = new UTF8Encoding(true).GetBytes(serversJSON);
-			storedServers.Write(buffer, 0, buffer.Length);
-			storedServers.Close();
-		}
-
-		public static void ReadSettingsData()
-		{
-			FileStream storedSettings = null;
-			try
-			{
-				storedSettings = new FileStream(Application.LocalUserAppDataPath + "\\settings.json", FileMode.OpenOrCreate);
-			}
-			catch (IOException e)
-			{
-				ErrorHandle(e, "Unable to read or create the server data file: ");
-				Application.ExitThread();
-			}
-
-			string settingsJSON = string.Empty;
-			byte[] buffer = new byte[1024];
-			UTF8Encoding encoding = new UTF8Encoding(true);
-			int bytesRead = 0;
-			while ((bytesRead = storedSettings.Read(buffer, 0, buffer.Length)) > 0)
-			{
-				settingsJSON += encoding.GetString(buffer, 0, bytesRead);
-			}
-
-			if (settingsJSON.Length > 0)
-                settings = JsonSerializer.Deserialize<SettingsData>(settingsJSON);
-			else
-				settings = new SettingsData();
-            storedSettings.Close();
-		}
-
-		public static void WriteSettingsData()
-		{
-            FileStream storedSettings = null;
-			try
-			{
-				storedSettings = new FileStream(Application.LocalUserAppDataPath + "\\settings.json", FileMode.Create);
-			}
-			catch (IOException e)
-			{
-				ErrorHandle(e, "Unable to save the server data file: ");
-				Application.ExitThread();
-			}
-
-			string settingsJSON = JsonSerializer.Serialize(settings);
-			byte[] buffer = new UTF8Encoding(true).GetBytes(settingsJSON);
-			storedSettings.Write(buffer, 0, buffer.Length);
-			storedSettings.Close();
-		}
-
 		private static void OnApplicationExit(object sender, EventArgs e)
 		{
-			WriteServerData();
-			WriteSettingsData();
+			SettingsHandler.WriteServerData();
+			SettingsHandler.WriteSettingsData();
 		}
 		
 		/// <summary>
@@ -197,19 +90,9 @@ namespace SS13AutoRecorder
 		/// </summary>
 		/// <param name="exception">Exception to fetch text info from</param>
 		/// <param name="error">Error text to display. Nullable, will default to unhandled exception</param>
-		public static void ErrorHandle(Exception exception, string error = null)
+		public static void ErrorHandle(Exception exception, string error = null, MessageBoxIcon icon = MessageBoxIcon.Error)
 		{
-            MessageBox.Show((error ?? "An unhandled exception has occured: ") + exception.ToString());
-		}
-
-		public static void ReconnectOBS()
-		{
-
-		}
-
-		public static void ChangeOBSScene()
-		{
-
+			MessageBox.Show((error ?? "An unhandled exception has occured: ") + exception?.ToString(), "Error", MessageBoxButtons.OK, icon);
 		}
 	}
 }
