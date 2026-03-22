@@ -10,6 +10,7 @@ using System.Management;
 using System.IO;
 using System.Text.Json;
 using System.Text;
+using OBSWebsocketDotNet;
 
 namespace SS13AutoRecorder
 {
@@ -34,19 +35,11 @@ namespace SS13AutoRecorder
             })
 			.Where(x => x.GetMethod("APIName").Invoke(null, null) as string != string.Empty)
 			.ToDictionary(x => x.GetMethod("APIName").Invoke(null, null) as string, x => x);
-		
+
 		/// <summary>List of server names to be used as a data source.</summary>
 		public static List<string> ServerListing => serverData?.Select(x => x.Name).ToList();
 
-		private static string GetCommandLine(this Process process)
-		{
-			using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT CommandLine FROM Win32_Process WHERE ProcessId = " + process.Id))
-			using (ManagementObjectCollection objects = searcher.Get())
-			{
-				return objects.Cast<ManagementBaseObject>().SingleOrDefault()?["CommandLine"].ToString();
-			}
-
-		}
+		public static OBSWebsocket obsSocket;
 
 		[STAThread]
 		static void Main()
@@ -60,7 +53,7 @@ namespace SS13AutoRecorder
 		}
 		
 		/// <summary>
-		/// Searches for any active dreamseeker processes connected to a server and returns the first match's IP address
+		/// Searches for any active DreamSeeker processes connected to a server and returns the first match's IP address
 		/// </summary>
 		/// <returns>IP address of the connected server</returns>
 		internal static string GetDreamseekerIP()
@@ -85,6 +78,17 @@ namespace SS13AutoRecorder
 
 			return null;
 		}
+
+		private static string GetCommandLine(this Process process)
+		{
+			using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT CommandLine FROM Win32_Process WHERE ProcessId = " + process.Id))
+			using (ManagementObjectCollection objects = searcher.Get())
+			{
+				return objects.Cast<ManagementBaseObject>().SingleOrDefault()?["CommandLine"].ToString();
+			}
+
+		}
+
 
 		public static void ReadServerData()
 		{
@@ -187,7 +191,12 @@ namespace SS13AutoRecorder
 			WriteServerData();
 			WriteSettingsData();
 		}
-
+		
+		/// <summary>
+		/// Creates a popup with exception info, for centralized handling.
+		/// </summary>
+		/// <param name="exception">Exception to fetch text info from</param>
+		/// <param name="error">Error text to display. Nullable, will default to unhandled exception</param>
 		public static void ErrorHandle(Exception exception, string error = null)
 		{
             MessageBox.Show((error ?? "An unhandled exception has occured: ") + exception.ToString());

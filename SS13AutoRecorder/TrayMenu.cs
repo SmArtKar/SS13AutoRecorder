@@ -27,16 +27,24 @@ namespace SS13AutoRecorder
 			LoadSettingsData();
 		}
 
-		private void TrayMenu_Load(object sender, EventArgs e)
+        private void TrayMenu_Load(object sender, EventArgs e)
 		{
 			Timer seekerTimer = new Timer();
 			seekerTimer.Interval = 1000;
 			seekerTimer.Tick += new EventHandler(SeekerTimer_Tick);
 			seekerTimer.Start();
-			SeekerTimer_Tick(null, null);
+			UpdateSeekerStatus();
+			// Need to call it here as its async and will fail if the handle is not loaded yet
+			if (selectedServer != null)
+                UpdateServerStatus();
 		}
 
 		private void SeekerTimer_Tick(object sender, EventArgs e)
+		{
+			UpdateSeekerStatus();
+		}
+
+		public void UpdateSeekerStatus() 
 		{
 			seekerIP = AutoRecorder.GetDreamseekerIP();
 			if (String.IsNullOrEmpty(seekerIP))
@@ -50,7 +58,8 @@ namespace SS13AutoRecorder
 			string selectedName = List_Servers.SelectedItem?.ToString();
 			selectedServer = AutoRecorder.serverData.FirstOrDefault(x => x.Name == selectedName);
 			LoadServerData();
-			UpdateServerStatus();
+			if (IsHandleCreated)
+                UpdateServerStatus();
 		}
 
 		private void LoadServerData()
@@ -80,12 +89,15 @@ namespace SS13AutoRecorder
 				return;
 			}
 
-			ApplyServerStatus(selectedServer?.
-				serverAPIType?
-				.GetMethod("GetServerStatus").
-				Invoke(null, [selectedServer?.ServerIP, selectedServer?.ServerPort])
-				as ServerStatus?
-			);
+			BeginInvoke((MethodInvoker)(() =>
+			{
+				ServerStatus? status = selectedServer?.
+                    serverAPIType?
+                    .GetMethod("GetServerStatus").
+                    Invoke(null, [selectedServer?.ServerIP, selectedServer?.ServerPort])
+                    as ServerStatus?;
+				ApplyServerStatus(status);
+			}));
 		}
 
 		private void ApplyServerStatus(ServerStatus? possibleStatus)
@@ -227,7 +239,8 @@ namespace SS13AutoRecorder
 			}
 
 			selectedServer.serverAPIType = AutoRecorder.ServerAPIs[AutoRecorder.ServerAPIs.Keys.ToList()[Input_ServerAPIType.SelectedIndex]];
-			UpdateServerStatus();
+			if (IsHandleCreated)
+                UpdateServerStatus();
 		}
 
 		private void Button_AddServer_Click(object sender, EventArgs e)
@@ -267,7 +280,7 @@ namespace SS13AutoRecorder
 			selectedServer.DreamseekerIPs.Add(Input_ServerKeyword.Text);
 			List_ServerKeywords.DataSource = null;
 			List_ServerKeywords.DataSource = selectedServer?.DreamseekerIPs;
-			SeekerTimer_Tick(null, null);
+			UpdateSeekerStatus();	
         }
 
         private void Button_DeleteServerKeyword_Click(object sender, EventArgs e)
@@ -278,7 +291,7 @@ namespace SS13AutoRecorder
 			selectedServer.DreamseekerIPs.RemoveAt(List_ServerKeywords.SelectedIndex);
 			List_ServerKeywords.DataSource = null;
 			List_ServerKeywords.DataSource = selectedServer?.DreamseekerIPs;
-			SeekerTimer_Tick(null, null);
+			UpdateSeekerStatus();
         }
 
         private void Input_OBSPort_ValueChanged(object sender, EventArgs e)
