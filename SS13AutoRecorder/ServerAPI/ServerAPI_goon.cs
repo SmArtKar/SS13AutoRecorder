@@ -42,7 +42,7 @@ namespace SS13AutoRecorder.ServerAPI
 
 				return new ServerStatus()
 				{
-					roundID = -1, // Goons do not respond with their round ID
+					roundID = 0, // Goons do not respond with their round ID, but -1 hints at a local server
 					gamestate = gamestate,
 					mapName = response["map_name"],
 					roundDuration = roundDuration,

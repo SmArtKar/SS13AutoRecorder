@@ -1,4 +1,5 @@
 ﻿using OBSWebsocketDotNet.Communication;
+using OBSWebsocketDotNet.Types;
 using OBSWebsocketDotNet.Types.Events;
 using SS13AutoRecorder.ServerAPI;
 using System;
@@ -46,15 +47,21 @@ namespace SS13AutoRecorder
 
         private void TrayMenu_Load(object sender, EventArgs e)
         {
-            Timer seekerTimer = new Timer();
-            seekerTimer.Interval = 1000;
-            seekerTimer.Tick += new EventHandler(UpdateSeekerStatus);
-            seekerTimer.Start();
             UpdateSeekerStatus();
             UpdateOBSStatus();
             // Need to call it here as its async and will fail if the handle is not loaded yet
             if (selectedServer != null)
                 UpdateServerStatus();
+
+            Timer seekerLoop = new Timer();
+            seekerLoop.Interval = 1000;
+            seekerLoop.Tick += new EventHandler(UpdateSeekerStatus);
+            seekerLoop.Start();
+
+            Timer recordingLoop = new Timer();
+            recordingLoop.Interval = 5000;
+            recordingLoop.Tick += new EventHandler(ProcessRecorder);
+            recordingLoop.Start();
         }
 
         private void AssignServerListing(object sender, EventArgs e)
@@ -75,6 +82,40 @@ namespace SS13AutoRecorder
                 Label_SeekerStatus.Text = "Offline";
             else
                 Label_SeekerStatus.Text = String.Format("Connected to {0}", SettingsHandler.serverData.FirstOrDefault(x => x.MatchIP(seekerIP))?.Name ?? seekerIP);
+        }
+
+        private void ProcessRecorder(object sender, EventArgs e)
+        {
+            ServerData connectedServer = SettingsHandler.serverData.FirstOrDefault(x => x.MatchIP(seekerIP));
+            if (connectedServer == null)
+            {
+                return;
+            }
+            
+            ServerStatus? status = selectedServer?.
+                serverAPIType?
+                .GetMethod("GetServerStatus").
+                Invoke(null, [selectedServer?.ServerIP, selectedServer?.ServerPort])
+                as ServerStatus?;
+
+            if (status == null)
+            {
+                return;
+            }
+
+            if (
+                (OBSHandler.RecordState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTED || 
+                OBSHandler.RecordState == OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED) && 
+                status?.gamestate == Gamestate.Roundend
+            )
+            {
+                // TODO: Log roundend
+                // TODO: End recording, save round
+                return;
+            }
+            
+
+
         }
 
         private void OnOBSConnected(object sender, EventArgs e)
@@ -98,17 +139,41 @@ namespace SS13AutoRecorder
             UpdateOBSStatus();
             // TODO: Possible race conditions here? May want to put this into the queue instead of an IsConnected check
             Input_OBSScene.Invoke((MethodInvoker)(() => { if (!OBSHandler.IsConnected) Input_OBSScene.DataSource = null; }));
-       }
+        }
 
         public void UpdateOBSStatus(object sender = null, EventArgs e = null)
         {
             if (!IsHandleCreated)
                 return;
 
-            if (OBSHandler.IsConnected)
-                Label_OBSStatus.Invoke((MethodInvoker)(() => Label_OBSStatus.Text = "Connected"));
-            else
+            if (!OBSHandler.IsConnected)
+            {
                 Label_OBSStatus.Invoke((MethodInvoker)(() => Label_OBSStatus.Text = "Offline"));
+                return;
+            }
+
+            string state = "Connected, Unknown";
+            switch (OBSHandler.RecordState)
+            {
+                case OutputState.OBS_WEBSOCKET_OUTPUT_STARTING:
+                    state = "Starting recording...";
+                    break;
+
+                case OutputState.OBS_WEBSOCKET_OUTPUT_STARTED:
+                case OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED:
+                    state = "Recording";
+                    break;
+
+                case OutputState.OBS_WEBSOCKET_OUTPUT_STOPPING:
+                    state = "Connected";
+                    break;
+
+                case OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED:
+                    state = "Recording paused";
+                    break;
+            }
+
+            Label_OBSStatus.Invoke((MethodInvoker)(() => Label_OBSStatus.Text = state));
         }
 
         private void OnOBSScenesChanged(object sender, SceneListChangedEventArgs e)
@@ -156,15 +221,19 @@ namespace SS13AutoRecorder
                 return;
             }
 
-            BeginInvoke((MethodInvoker)(() =>
+            Task.Run(() =>
             {
                 ServerStatus? status = selectedServer?.
                     serverAPIType?
                     .GetMethod("GetServerStatus").
                     Invoke(null, [selectedServer?.ServerIP, selectedServer?.ServerPort])
                     as ServerStatus?;
-                ApplyServerStatus(status);
-            }));
+
+                BeginInvoke((MethodInvoker)(() =>
+                {
+                    ApplyServerStatus(status);
+                }));
+            });
         }
 
         private void ApplyServerStatus(ServerStatus? possibleStatus)

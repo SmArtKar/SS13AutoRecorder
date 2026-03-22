@@ -22,10 +22,14 @@ namespace SS13AutoRecorder
         public static event EventHandler<SceneListChangedEventArgs> SceneListChanged;
 		/// <summary>The currently active scene has changed</summary>
         public static event EventHandler<ProgramSceneChangedEventArgs> CurrentProgramSceneChanged;
+		/// <summary>The recording state has changed</summary>
+        public static event EventHandler<RecordStateChangedEventArgs> RecordStateChanged;
 
 		/// <summary>Returns a list of all existing OBS scenes</summary>
 		public static List<SceneBasicInfo> ListScenes => (obsSocket != null && obsSocket.IsConnected) ? obsSocket.ListScenes() : null;
 		public static bool IsConnected => obsSocket != null && obsSocket.IsConnected;
+		public static OutputState? RecordState = (obsSocket != null && obsSocket.IsConnected) ? _recordState : null;
+		private static OutputState? _recordState = null;
 
 		/// <summary>
 		/// Initializes an OBS websocket connection from the settings data, or signs up for latter's event if it is not loaded yet
@@ -38,6 +42,7 @@ namespace SS13AutoRecorder
 			obsSocket.Disconnected += OnDisconnected;
 			obsSocket.SceneListChanged += OnSceneListChanged;
 			obsSocket.CurrentProgramSceneChanged += OnCurrentProgramSceneChanged;
+			obsSocket.RecordStateChanged += OnRecordStateChanged;
 
             if (SettingsHandler.settings?.ObsPort > 0)
                 ConnectOBS();
@@ -45,11 +50,31 @@ namespace SS13AutoRecorder
 				SettingsHandler.OnSettingsLoaded += OnSettingsLoaded;
 		}
 
+		private static void OnConnected(object sender, EventArgs e)
+		{
+			RecordingStatus status = obsSocket.GetRecordStatus();
+			if (status == null)
+				RecordState = null;
+			else if (status.IsRecordingPaused)
+				RecordState = OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED;
+			else if (status.IsRecording)
+				RecordState = OutputState.OBS_WEBSOCKET_OUTPUT_STARTED;
+			else
+				RecordState = OutputState.OBS_WEBSOCKET_OUTPUT_STOPPED;
+
+            Connected?.Invoke(sender, e);
+		}
+
 		// Use event relays as the socket is not guaranteed to exist until initialization has been called for
-        private static void OnConnected(object sender, EventArgs e) => Connected?.Invoke(sender, e);
         private static void OnDisconnected(object sender, ObsDisconnectionInfo e) => Disconnected?.Invoke(sender, e);
         private static void OnSceneListChanged(object sender, SceneListChangedEventArgs e) => SceneListChanged.Invoke(sender, e);
 		private static void OnCurrentProgramSceneChanged(object sender, ProgramSceneChangedEventArgs e) => CurrentProgramSceneChanged?.Invoke(sender, e);
+		
+        private static void OnRecordStateChanged(object sender, RecordStateChangedEventArgs e)
+        {
+			RecordState = e.OutputState.State;
+			RecordStateChanged?.Invoke(sender, e);
+        }
 
         private static void OnSettingsLoaded(object sender, EventArgs e)
 		{
@@ -62,10 +87,11 @@ namespace SS13AutoRecorder
 		/// Asynchronous.
 		/// </summary>
 		/// <param name="displayError">Should error response exceptions be thrown or silenced?</param>
-		public static void ConnectOBS(bool displayError = true)
+		/// <returns>true if connection was successful, false if it has failed.</returns>
+		public static bool ConnectOBS(bool displayError = true)
 		{
 			if (obsSocket == null)
-				return;
+				return false;
 
 			Task.Run(() =>
 			{
@@ -83,6 +109,8 @@ namespace SS13AutoRecorder
 					AutoRecorder.ErrorHandle(e);
 				}
 			});
+
+			return obsSocket.IsConnected;
 		}
 
 		public static void ChangeOBSScene(string newScene) => obsSocket.SetCurrentProgramScene(newScene);
