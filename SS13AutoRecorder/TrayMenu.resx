@@ -1,0 +1,1598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="List_Servers.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="List_Servers.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="List_Servers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="List_Servers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 355</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="List_Servers.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;List_Servers.Name" xml:space="preserve">
+    <value>List_Servers</value>
+  </data>
+  <data name="&gt;&gt;List_Servers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;List_Servers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;List_Servers.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Input_ServerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 22</value>
+  </data>
+  <data name="Input_ServerName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 20</value>
+  </data>
+  <data name="Input_ServerName.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerName.Name" xml:space="preserve">
+    <value>Input_ServerName</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerName.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerName.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_Text_Name.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_Name.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_Name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="_Text_Name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="_Text_Name.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="_Text_Name.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="&gt;&gt;_Text_Name.Name" xml:space="preserve">
+    <value>_Text_Name</value>
+  </data>
+  <data name="&gt;&gt;_Text_Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_Name.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Text_Name.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Input_ServerIP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 48</value>
+  </data>
+  <data name="Input_ServerIP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 20</value>
+  </data>
+  <data name="Input_ServerIP.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerIP.Name" xml:space="preserve">
+    <value>Input_ServerIP</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerIP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerIP.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerIP.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="_Text_IP.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_IP.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_IP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 52</value>
+  </data>
+  <data name="_Text_IP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
+  </data>
+  <data name="_Text_IP.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="_Text_IP.Text" xml:space="preserve">
+    <value>IP:</value>
+  </data>
+  <data name="&gt;&gt;_Text_IP.Name" xml:space="preserve">
+    <value>_Text_IP</value>
+  </data>
+  <data name="&gt;&gt;_Text_IP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_IP.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Text_IP.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_Text_Port.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_Port.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_Port.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 79</value>
+  </data>
+  <data name="_Text_Port.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 13</value>
+  </data>
+  <data name="_Text_Port.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="_Text_Port.Text" xml:space="preserve">
+    <value>Port:</value>
+  </data>
+  <data name="&gt;&gt;_Text_Port.Name" xml:space="preserve">
+    <value>_Text_Port</value>
+  </data>
+  <data name="&gt;&gt;_Text_Port.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_Port.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Text_Port.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="Input_ServerPort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 75</value>
+  </data>
+  <data name="Input_ServerPort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 20</value>
+  </data>
+  <data name="Input_ServerPort.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerPort.Name" xml:space="preserve">
+    <value>Input_ServerPort</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerPort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerPort.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerPort.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_Box_ServerStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.Name" xml:space="preserve">
+    <value>Label_RoundDuration</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.Name" xml:space="preserve">
+    <value>Label_MapName</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.Name" xml:space="preserve">
+    <value>Label_GameState</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.Name" xml:space="preserve">
+    <value>_Text_RoundDuration</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.Name" xml:space="preserve">
+    <value>_Text_MapName</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.Name" xml:space="preserve">
+    <value>_Text_GameState</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.Name" xml:space="preserve">
+    <value>Label_RoundID</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.Name" xml:space="preserve">
+    <value>_Text_RoundID</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.Name" xml:space="preserve">
+    <value>Label_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.Name" xml:space="preserve">
+    <value>_Text_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_Box_ServerStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="_Box_ServerStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 168</value>
+  </data>
+  <data name="_Box_ServerStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 200</value>
+  </data>
+  <data name="_Box_ServerStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="_Box_ServerStatus.Text" xml:space="preserve">
+    <value>Server Status</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.Name" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Label_RoundDuration.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label_RoundDuration.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label_RoundDuration.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="Label_RoundDuration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="Label_RoundDuration.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="Label_RoundDuration.Text" xml:space="preserve">
+    <value>1h 58m</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.Name" xml:space="preserve">
+    <value>Label_RoundDuration</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundDuration.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Label_MapName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label_MapName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label_MapName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 80</value>
+  </data>
+  <data name="Label_MapName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="Label_MapName.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Label_MapName.Text" xml:space="preserve">
+    <value>Sokoban Station</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.Name" xml:space="preserve">
+    <value>Label_MapName</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_MapName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label_GameState.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label_GameState.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label_GameState.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 60</value>
+  </data>
+  <data name="Label_GameState.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="Label_GameState.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="Label_GameState.Text" xml:space="preserve">
+    <value>Round In Progress</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.Name" xml:space="preserve">
+    <value>Label_GameState</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_GameState.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_Text_RoundDuration.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_RoundDuration.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_RoundDuration.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 100</value>
+  </data>
+  <data name="_Text_RoundDuration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 13</value>
+  </data>
+  <data name="_Text_RoundDuration.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="_Text_RoundDuration.Text" xml:space="preserve">
+    <value>Round Duration:</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.Name" xml:space="preserve">
+    <value>_Text_RoundDuration</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundDuration.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_Text_MapName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_MapName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_MapName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 80</value>
+  </data>
+  <data name="_Text_MapName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="_Text_MapName.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="_Text_MapName.Text" xml:space="preserve">
+    <value>Map Name:</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.Name" xml:space="preserve">
+    <value>_Text_MapName</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_MapName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_Text_GameState.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_GameState.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_GameState.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 60</value>
+  </data>
+  <data name="_Text_GameState.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="_Text_GameState.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="_Text_GameState.Text" xml:space="preserve">
+    <value>Game State:</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.Name" xml:space="preserve">
+    <value>_Text_GameState</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_GameState.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Label_RoundID.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label_RoundID.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label_RoundID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 40</value>
+  </data>
+  <data name="Label_RoundID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="Label_RoundID.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Label_RoundID.Text" xml:space="preserve">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.Name" xml:space="preserve">
+    <value>Label_RoundID</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_RoundID.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_Text_RoundID.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_RoundID.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_RoundID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 40</value>
+  </data>
+  <data name="_Text_RoundID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="_Text_RoundID.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="_Text_RoundID.Text" xml:space="preserve">
+    <value>Round ID:</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.Name" xml:space="preserve">
+    <value>_Text_RoundID</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_RoundID.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Label_ServerStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label_ServerStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label_ServerStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="Label_ServerStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 13</value>
+  </data>
+  <data name="Label_ServerStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Label_ServerStatus.Text" xml:space="preserve">
+    <value>Unreachable</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.Name" xml:space="preserve">
+    <value>Label_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_ServerStatus.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_Text_ServerStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_ServerStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_ServerStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="_Text_ServerStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 13</value>
+  </data>
+  <data name="_Text_ServerStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_Text_ServerStatus.Text" xml:space="preserve">
+    <value>Server Status:</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.Name" xml:space="preserve">
+    <value>_Text_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.Parent" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Text_ServerStatus.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_Box_ServerData.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.Name" xml:space="preserve">
+    <value>_Text_DSKeywords</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.Name" xml:space="preserve">
+    <value>Input_ServerKeyword</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.Name" xml:space="preserve">
+    <value>Button_AddServerKeyword</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.Name" xml:space="preserve">
+    <value>Button_DeleteServerKeyword</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.Name" xml:space="preserve">
+    <value>List_ServerKeywords</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.Name" xml:space="preserve">
+    <value>_Text_APIType</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.Name" xml:space="preserve">
+    <value>Input_ServerAPIType</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_Box_ServerData.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="_Box_ServerData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 6</value>
+  </data>
+  <data name="_Box_ServerData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>511, 156</value>
+  </data>
+  <data name="_Box_ServerData.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_Box_ServerData.Text" xml:space="preserve">
+    <value>Server Settings</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.Name" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_Text_DSKeywords.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_DSKeywords.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_DSKeywords.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 25</value>
+  </data>
+  <data name="_Text_DSKeywords.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 13</value>
+  </data>
+  <data name="_Text_DSKeywords.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="_Text_DSKeywords.Text" xml:space="preserve">
+    <value>DS Keywords:</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.Name" xml:space="preserve">
+    <value>_Text_DSKeywords</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Text_DSKeywords.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Input_ServerKeyword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="Input_ServerKeyword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 22</value>
+  </data>
+  <data name="Input_ServerKeyword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 20</value>
+  </data>
+  <data name="Input_ServerKeyword.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.Name" xml:space="preserve">
+    <value>Input_ServerKeyword</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerKeyword.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Button_AddServerKeyword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="Button_AddServerKeyword.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAFlJREFUOE9j
+        oAuwWWtyAIj/Q/EBqDDpAMkQMIYKkw6GqUFAjQ7oBoHEoNLYAVABcuyQihGxiUWSJAw1hroGUcdr2ABQ
+        AemBjQugGwQVJh0Mb4OoU4wQDxgYAAj1772cyvxXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="Button_AddServerKeyword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button_AddServerKeyword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>445, 21</value>
+  </data>
+  <data name="Button_AddServerKeyword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="Button_AddServerKeyword.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.Name" xml:space="preserve">
+    <value>Button_AddServerKeyword</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServerKeyword.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Button_DeleteServerKeyword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="Button_DeleteServerKeyword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button_DeleteServerKeyword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>475, 21</value>
+  </data>
+  <data name="Button_DeleteServerKeyword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="Button_DeleteServerKeyword.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.Name" xml:space="preserve">
+    <value>Button_DeleteServerKeyword</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Button_DeleteServerKeyword.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="List_ServerKeywords.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="List_ServerKeywords.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 52</value>
+  </data>
+  <data name="List_ServerKeywords.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 95</value>
+  </data>
+  <data name="List_ServerKeywords.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.Name" xml:space="preserve">
+    <value>List_ServerKeywords</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;List_ServerKeywords.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_Text_APIType.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_APIType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_APIType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 105</value>
+  </data>
+  <data name="_Text_APIType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 13</value>
+  </data>
+  <data name="_Text_APIType.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_Text_APIType.Text" xml:space="preserve">
+    <value>API Type:</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.Name" xml:space="preserve">
+    <value>_Text_APIType</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Text_APIType.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Input_ServerAPIType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 101</value>
+  </data>
+  <data name="Input_ServerAPIType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 21</value>
+  </data>
+  <data name="Input_ServerAPIType.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.Name" xml:space="preserve">
+    <value>Input_ServerAPIType</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.Parent" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;Input_ServerAPIType.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_Box_Settings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="Label_OBSStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label_OBSStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label_OBSStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 25</value>
+  </data>
+  <data name="Label_OBSStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 13</value>
+  </data>
+  <data name="Label_OBSStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="Label_OBSStatus.Text" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="&gt;&gt;Label_OBSStatus.Name" xml:space="preserve">
+    <value>Label_OBSStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_OBSStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_OBSStatus.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Label_OBSStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_Text_UserAgent.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_UserAgent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_UserAgent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 161</value>
+  </data>
+  <data name="_Text_UserAgent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="_Text_UserAgent.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="_Text_UserAgent.Text" xml:space="preserve">
+    <value>User Agent:</value>
+  </data>
+  <data name="&gt;&gt;_Text_UserAgent.Name" xml:space="preserve">
+    <value>_Text_UserAgent</value>
+  </data>
+  <data name="&gt;&gt;_Text_UserAgent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_UserAgent.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;_Text_UserAgent.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Input_UserAgent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="Input_UserAgent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 158</value>
+  </data>
+  <data name="Input_UserAgent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 20</value>
+  </data>
+  <data name="Input_UserAgent.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;Input_UserAgent.Name" xml:space="preserve">
+    <value>Input_UserAgent</value>
+  </data>
+  <data name="&gt;&gt;Input_UserAgent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_UserAgent.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Input_UserAgent.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_Text_StopDelay.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_StopDelay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_StopDelay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 134</value>
+  </data>
+  <data name="_Text_StopDelay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="_Text_StopDelay.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="_Text_StopDelay.Text" xml:space="preserve">
+    <value>Stop Delay:</value>
+  </data>
+  <data name="&gt;&gt;_Text_StopDelay.Name" xml:space="preserve">
+    <value>_Text_StopDelay</value>
+  </data>
+  <data name="&gt;&gt;_Text_StopDelay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_StopDelay.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;_Text_StopDelay.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Input_StopRecordingDelay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 131</value>
+  </data>
+  <data name="Input_StopRecordingDelay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 20</value>
+  </data>
+  <data name="Input_StopRecordingDelay.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;Input_StopRecordingDelay.Name" xml:space="preserve">
+    <value>Input_StopRecordingDelay</value>
+  </data>
+  <data name="&gt;&gt;Input_StopRecordingDelay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_StopRecordingDelay.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Input_StopRecordingDelay.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Input_OBSDirectory.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="Input_OBSDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 104</value>
+  </data>
+  <data name="Input_OBSDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 20</value>
+  </data>
+  <data name="Input_OBSDirectory.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSDirectory.Name" xml:space="preserve">
+    <value>Input_OBSDirectory</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSDirectory.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSDirectory.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_Text_SaveFolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_SaveFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_SaveFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 107</value>
+  </data>
+  <data name="_Text_SaveFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="_Text_SaveFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="_Text_SaveFolder.Text" xml:space="preserve">
+    <value>Save Folder:</value>
+  </data>
+  <data name="&gt;&gt;_Text_SaveFolder.Name" xml:space="preserve">
+    <value>_Text_SaveFolder</value>
+  </data>
+  <data name="&gt;&gt;_Text_SaveFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_SaveFolder.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;_Text_SaveFolder.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_Text_OBSScene.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_OBSScene.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_OBSScene.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 80</value>
+  </data>
+  <data name="_Text_OBSScene.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="_Text_OBSScene.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="_Text_OBSScene.Text" xml:space="preserve">
+    <value>OBS Scene:</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSScene.Name" xml:space="preserve">
+    <value>_Text_OBSScene</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSScene.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSScene.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSScene.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Input_OBSScene.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="Input_OBSScene.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 77</value>
+  </data>
+  <data name="Input_OBSScene.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 20</value>
+  </data>
+  <data name="Input_OBSScene.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSScene.Name" xml:space="preserve">
+    <value>Input_OBSScene</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSScene.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSScene.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSScene.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="Input_OBSPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="Input_OBSPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 50</value>
+  </data>
+  <data name="Input_OBSPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="Input_OBSPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 20</value>
+  </data>
+  <data name="Input_OBSPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPassword.Name" xml:space="preserve">
+    <value>Input_OBSPassword</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPassword.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPassword.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_Text_OBSPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_OBSPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_OBSPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 53</value>
+  </data>
+  <data name="_Text_OBSPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 13</value>
+  </data>
+  <data name="_Text_OBSPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="_Text_OBSPassword.Text" xml:space="preserve">
+    <value>OBS Password:</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPassword.Name" xml:space="preserve">
+    <value>_Text_OBSPassword</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPassword.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPassword.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="Input_OBSPort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 23</value>
+  </data>
+  <data name="Input_OBSPort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 20</value>
+  </data>
+  <data name="Input_OBSPort.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPort.Name" xml:space="preserve">
+    <value>Input_OBSPort</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPort.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Input_OBSPort.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="_Text_OBSPort.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_OBSPort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_OBSPort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 26</value>
+  </data>
+  <data name="_Text_OBSPort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 13</value>
+  </data>
+  <data name="_Text_OBSPort.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_Text_OBSPort.Text" xml:space="preserve">
+    <value>OBS Port:</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPort.Name" xml:space="preserve">
+    <value>_Text_OBSPort</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPort.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;_Text_OBSPort.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_Box_Settings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="_Box_Settings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>418, 168</value>
+  </data>
+  <data name="_Box_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 200</value>
+  </data>
+  <data name="_Box_Settings.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="_Box_Settings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;_Box_Settings.Name" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;_Box_Settings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Box_Settings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Box_Settings.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Button_DelServer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="Button_DelServer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="Button_DelServer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button_DelServer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 375</value>
+  </data>
+  <data name="Button_DelServer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="Button_DelServer.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Button_DelServer.Name" xml:space="preserve">
+    <value>Button_DelServer</value>
+  </data>
+  <data name="&gt;&gt;Button_DelServer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_DelServer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Button_DelServer.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Button_AddServer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="Button_AddServer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="Button_AddServer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAFlJREFUOE9j
+        oAuwWWtyAIj/Q/EBqDDpAMkQMIYKkw6GqUFAjQ7oBoHEoNLYAVABcuyQihGxiUWSJAw1hroGUcdr2ABQ
+        AemBjQugGwQVJh0Mb4OoU4wQDxgYAAj1772cyvxXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="Button_AddServer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button_AddServer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 375</value>
+  </data>
+  <data name="Button_AddServer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="Button_AddServer.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServer.Name" xml:space="preserve">
+    <value>Button_AddServer</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Button_AddServer.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_Text_SeekerFound.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_Text_SeekerFound.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Text_SeekerFound.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 381</value>
+  </data>
+  <data name="_Text_SeekerFound.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 13</value>
+  </data>
+  <data name="_Text_SeekerFound.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="_Text_SeekerFound.Text" xml:space="preserve">
+    <value>DreamSeeker Status:</value>
+  </data>
+  <data name="&gt;&gt;_Text_SeekerFound.Name" xml:space="preserve">
+    <value>_Text_SeekerFound</value>
+  </data>
+  <data name="&gt;&gt;_Text_SeekerFound.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Text_SeekerFound.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Text_SeekerFound.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label_SeekerStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label_SeekerStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label_SeekerStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 381</value>
+  </data>
+  <data name="Label_SeekerStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 13</value>
+  </data>
+  <data name="Label_SeekerStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="Label_SeekerStatus.Text" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="&gt;&gt;Label_SeekerStatus.Name" xml:space="preserve">
+    <value>Label_SeekerStatus</value>
+  </data>
+  <data name="&gt;&gt;Label_SeekerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label_SeekerStatus.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label_SeekerStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="autoRecorderBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>704, 407</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>720, 446</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>SS13 AutoRecorder</value>
+  </data>
+  <data name="&gt;&gt;autoRecorderBindingSource.Name" xml:space="preserve">
+    <value>autoRecorderBindingSource</value>
+  </data>
+  <data name="&gt;&gt;autoRecorderBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>TrayMenu</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
