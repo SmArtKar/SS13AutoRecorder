@@ -40,13 +40,16 @@ namespace SS13AutoRecorder.ServerAPI
 					}
 				}
 
+				// Cut away revision hash that goons append to their version state
+				string revision = response["version"].Split([" (r"], StringSplitOptions.None).First();
+
 				return new ServerStatus()
 				{
-					roundID = 0, // Goons do not respond with their round ID, but -1 hints at a local server
+					roundID = int.Parse(response["round_id"]), 
 					gamestate = gamestate,
 					mapName = response["map_name"],
 					roundDuration = roundDuration,
-					version = response["version"],
+					version = revision,
 					players = int.Parse(response["players"]),
 				};
 			}

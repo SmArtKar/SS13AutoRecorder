@@ -133,7 +133,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="List_Servers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 407</value>
+    <value>186, 420</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="List_Servers.TabIndex" type="System.Int32, mscorlib">
@@ -149,7 +149,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;List_Servers.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="Input_ServerName.Location" type="System.Drawing.Point, System.Drawing">
     <value>77, 25</value>
@@ -659,7 +659,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="_Box_ServerStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 194</value>
+    <value>211, 198</value>
   </data>
   <data name="_Box_ServerStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -668,7 +668,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="_Box_ServerStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 231</value>
+    <value>270, 236</value>
   </data>
   <data name="_Box_ServerStatus.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -915,7 +915,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="_Box_ServerData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>596, 180</value>
+    <value>596, 184</value>
   </data>
   <data name="_Box_ServerData.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -938,6 +938,36 @@
   <data name="_Box_Settings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="Input_DiscardOnExit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Input_DiscardOnExit.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="Input_DiscardOnExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 213</value>
+  </data>
+  <data name="Input_DiscardOnExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 17</value>
+  </data>
+  <data name="Input_DiscardOnExit.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="Input_DiscardOnExit.Text" xml:space="preserve">
+    <value>Discard on Exit      </value>
+  </data>
+  <data name="&gt;&gt;Input_DiscardOnExit.Name" xml:space="preserve">
+    <value>Input_DiscardOnExit</value>
+  </data>
+  <data name="&gt;&gt;Input_DiscardOnExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Input_DiscardOnExit.Parent" xml:space="preserve">
+    <value>_Box_Settings</value>
+  </data>
+  <data name="&gt;&gt;Input_DiscardOnExit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="Input_OBSScene.Location" type="System.Drawing.Point, System.Drawing">
     <value>108, 89</value>
   </data>
@@ -957,7 +987,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;Input_OBSScene.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="Label_OBSStatus.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -990,7 +1020,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;Label_OBSStatus.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="_Text_UserAgent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1023,7 +1053,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;_Text_UserAgent.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="Input_UserAgent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1050,7 +1080,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;Input_UserAgent.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="_Text_StopDelay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1065,13 +1095,13 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="_Text_StopDelay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
+    <value>88, 13</value>
   </data>
   <data name="_Text_StopDelay.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="_Text_StopDelay.Text" xml:space="preserve">
-    <value>Stop Delay:</value>
+    <value>Stop Delay (dcs):</value>
   </data>
   <data name="&gt;&gt;_Text_StopDelay.Name" xml:space="preserve">
     <value>_Text_StopDelay</value>
@@ -1083,7 +1113,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;_Text_StopDelay.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="Input_StopRecordingDelay.Location" type="System.Drawing.Point, System.Drawing">
     <value>108, 151</value>
@@ -1107,7 +1137,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;Input_StopRecordingDelay.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Input_OBSDirectory.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1134,7 +1164,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;Input_OBSDirectory.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="_Text_SaveFolder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1167,7 +1197,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;_Text_SaveFolder.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="_Text_OBSScene.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1200,7 +1230,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;_Text_OBSScene.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="Input_OBSPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1230,7 +1260,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;Input_OBSPassword.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="_Text_OBSPassword.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1263,7 +1293,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;_Text_OBSPassword.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="Input_OBSPort.Location" type="System.Drawing.Point, System.Drawing">
     <value>108, 27</value>
@@ -1287,7 +1317,7 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;Input_OBSPort.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="_Text_OBSPort.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1320,13 +1350,13 @@
     <value>_Box_Settings</value>
   </data>
   <data name="&gt;&gt;_Text_OBSPort.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="_Box_Settings.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="_Box_Settings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>488, 194</value>
+    <value>488, 198</value>
   </data>
   <data name="_Box_Settings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -1335,7 +1365,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="_Box_Settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 231</value>
+    <value>320, 236</value>
   </data>
   <data name="_Box_Settings.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1365,7 +1395,7 @@
     <value>NoControl</value>
   </data>
   <data name="Button_DelServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 433</value>
+    <value>49, 440</value>
   </data>
   <data name="Button_DelServer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -1405,7 +1435,7 @@
     <value>NoControl</value>
   </data>
   <data name="Button_AddServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 433</value>
+    <value>14, 440</value>
   </data>
   <data name="Button_AddServer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -1426,7 +1456,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Button_AddServer.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="_Text_SeekerFound.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1435,7 +1465,7 @@
     <value>NoControl</value>
   </data>
   <data name="_Text_SeekerFound.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 440</value>
+    <value>211, 447</value>
   </data>
   <data name="_Text_SeekerFound.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -1468,7 +1498,7 @@
     <value>NoControl</value>
   </data>
   <data name="Label_SeekerStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 440</value>
+    <value>333, 447</value>
   </data>
   <data name="Label_SeekerStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -1504,7 +1534,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>821, 470</value>
+    <value>821, 474</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>

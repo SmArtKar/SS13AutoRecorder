@@ -21,5 +21,7 @@ namespace SS13AutoRecorder
 		public int StopRecordingDelay { get; set; } = 95;
 		/// <summary>User agent passed to REST APIs, such as BeeStation's</summary>
 		public string UserAgent { get; set; } = "SS13 AutoRecorder";
+		/// <summary>Should an ongoing recording be discarded upon exiting the program, or just paused?</summary>
+		public bool DiscardOnQuit { get; set; } = false;
 	}
 }

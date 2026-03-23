@@ -57,6 +57,7 @@
             _Text_APIType = new System.Windows.Forms.Label();
             Input_ServerAPIType = new System.Windows.Forms.ComboBox();
             _Box_Settings = new System.Windows.Forms.GroupBox();
+            Input_DiscardOnExit = new System.Windows.Forms.CheckBox();
             Input_OBSScene = new System.Windows.Forms.ComboBox();
             Label_OBSStatus = new System.Windows.Forms.Label();
             _Text_UserAgent = new System.Windows.Forms.Label();
@@ -258,6 +259,7 @@
             // _Box_Settings
             // 
             resources.ApplyResources(_Box_Settings, "_Box_Settings");
+            _Box_Settings.Controls.Add(Input_DiscardOnExit);
             _Box_Settings.Controls.Add(Input_OBSScene);
             _Box_Settings.Controls.Add(Label_OBSStatus);
             _Box_Settings.Controls.Add(_Text_UserAgent);
@@ -273,6 +275,13 @@
             _Box_Settings.Controls.Add(_Text_OBSPort);
             _Box_Settings.Name = "_Box_Settings";
             _Box_Settings.TabStop = false;
+            // 
+            // Input_DiscardOnExit
+            // 
+            resources.ApplyResources(Input_DiscardOnExit, "Input_DiscardOnExit");
+            Input_DiscardOnExit.Name = "Input_DiscardOnExit";
+            Input_DiscardOnExit.UseVisualStyleBackColor = true;
+            Input_DiscardOnExit.CheckedChanged += Input_DiscardOnExit_CheckedChanged;
             // 
             // Input_OBSScene
             // 
@@ -391,8 +400,8 @@
             Controls.Add(_Box_ServerData);
             Controls.Add(_Box_ServerStatus);
             Controls.Add(Button_DelServer);
-            Controls.Add(Button_AddServer);
             Controls.Add(List_Servers);
+            Controls.Add(Button_AddServer);
             Name = "TrayMenu";
             Load += TrayMenu_Load;
             ((System.ComponentModel.ISupportInitialize)Input_ServerPort).EndInit();
@@ -457,6 +466,7 @@
 		private System.Windows.Forms.Label Label_SeekerStatus;
 		private System.Windows.Forms.Label Label_OBSStatus;
         private System.Windows.Forms.ComboBox Input_OBSScene;
+        private System.Windows.Forms.CheckBox Input_DiscardOnExit;
     }
 }
 

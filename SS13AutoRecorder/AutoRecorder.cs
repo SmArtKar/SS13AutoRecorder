@@ -52,7 +52,7 @@ namespace SS13AutoRecorder
 			{
 				try
 				{
-					string[] processArgs = process.GetCommandLine().Split(new[] { "\" \"" }, StringSplitOptions.None);
+					string[] processArgs = process.GetCommandLine().Split(["\" \""], StringSplitOptions.None);
 					if (processArgs.Length >= 2)
 						return processArgs[1].Split('\"')[0];
 				}
