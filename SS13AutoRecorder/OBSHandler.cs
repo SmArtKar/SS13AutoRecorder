@@ -26,10 +26,11 @@ namespace SS13AutoRecorder
         public static event EventHandler<RecordStateChangedEventArgs> RecordStateChanged;
 
 		/// <summary>Returns a list of all existing OBS scenes</summary>
-		public static List<SceneBasicInfo> ListScenes => (obsSocket != null && obsSocket.IsConnected) ? obsSocket.ListScenes() : null;
-		public static bool IsConnected => obsSocket != null && obsSocket.IsConnected;
-		public static OutputState? RecordState = (obsSocket != null && obsSocket.IsConnected) ? _recordState : null;
+		public static List<SceneBasicInfo> ListScenes => IsConnected ? obsSocket.ListScenes() : null;
+		public static bool IsConnected => obsSocket?.IsConnected ?? false;
+		public static OutputState? RecordState => IsConnected ? _recordState : null;
 		private static OutputState? _recordState = null;
+		public static string RecordDirectory => IsConnected ? obsSocket.GetRecordDirectory() : null; 
 
 		/// <summary>
 		/// Initializes an OBS websocket connection from the settings data, or signs up for latter's event if it is not loaded yet
@@ -54,13 +55,13 @@ namespace SS13AutoRecorder
 		{
 			RecordingStatus status = obsSocket.GetRecordStatus();
 			if (status == null)
-				RecordState = null;
+				_recordState = null;
 			else if (status.IsRecordingPaused)
-				RecordState = OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED;
+				_recordState = OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED;
 			else if (status.IsRecording)
-				RecordState = OutputState.OBS_WEBSOCKET_OUTPUT_STARTED;
+				_recordState = OutputState.OBS_WEBSOCKET_OUTPUT_STARTED;
 			else
-				RecordState = OutputState.OBS_WEBSOCKET_OUTPUT_STOPPED;
+				_recordState = OutputState.OBS_WEBSOCKET_OUTPUT_STOPPED;
 
             Connected?.Invoke(sender, e);
 		}
@@ -72,7 +73,7 @@ namespace SS13AutoRecorder
 		
         private static void OnRecordStateChanged(object sender, RecordStateChangedEventArgs e)
         {
-			RecordState = e.OutputState.State;
+			_recordState = e.OutputState.State;
 			RecordStateChanged?.Invoke(sender, e);
         }
 
@@ -81,6 +82,20 @@ namespace SS13AutoRecorder
 			if (SettingsHandler.settings.ObsPort > 0)
                 ConnectOBS();
 		}
+
+		public static void ToggleRecording() => obsSocket.ToggleRecord();
+		public static void TogglePause() => obsSocket.ToggleRecordPause();
+
+		/// <summary>
+		/// End an active recording
+		/// </summary>
+		/// <returns>Filepath for the recording, or null if there was no active recording</returns>
+		public static string EndRecording() => (
+                RecordState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTING || 
+                RecordState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTED || 
+                RecordState == OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED || 
+                RecordState == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED
+			) ? obsSocket.StopRecord() : null;
 		
 		/// <summary>
 		/// Attempt connection to an OBS websocket.

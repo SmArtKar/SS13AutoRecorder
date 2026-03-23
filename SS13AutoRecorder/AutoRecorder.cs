@@ -83,6 +83,7 @@ namespace SS13AutoRecorder
 		{
 			SettingsHandler.WriteServerData();
 			SettingsHandler.WriteSettingsData();
+			// TODO: Save last recording, add pref to toggle between saving/discarding?
 		}
 		
 		/// <summary>
