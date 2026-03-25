@@ -56,7 +56,6 @@
             List_ServerKeywords = new System.Windows.Forms.ListBox();
             _Text_APIType = new System.Windows.Forms.Label();
             Input_ServerAPIType = new System.Windows.Forms.ComboBox();
-            _Box_Settings = new System.Windows.Forms.GroupBox();
             Input_DiscardOnExit = new System.Windows.Forms.CheckBox();
             Input_OBSScene = new System.Windows.Forms.ComboBox();
             Label_OBSStatus = new System.Windows.Forms.Label();
@@ -76,13 +75,24 @@
             _Text_SeekerFound = new System.Windows.Forms.Label();
             Label_SeekerStatus = new System.Windows.Forms.Label();
             autoRecorderBindingSource = new System.Windows.Forms.BindingSource(components);
+            BoxTab_Controls = new System.Windows.Forms.TabControl();
+            Tab_OBS_Controls = new System.Windows.Forms.TabPage();
+            Button_Stop = new System.Windows.Forms.Button();
+            Button_Pause = new System.Windows.Forms.Button();
+            _Text_OBSStatus = new System.Windows.Forms.Label();
+            Tab_SystemSettings = new System.Windows.Forms.TabPage();
+            Tab_OBS_Settings = new System.Windows.Forms.TabPage();
+            Button_Discard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)Input_ServerPort).BeginInit();
             _Box_ServerStatus.SuspendLayout();
             _Box_ServerData.SuspendLayout();
-            _Box_Settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Input_StopRecordingDelay).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Input_OBSPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)autoRecorderBindingSource).BeginInit();
+            BoxTab_Controls.SuspendLayout();
+            Tab_OBS_Controls.SuspendLayout();
+            Tab_SystemSettings.SuspendLayout();
+            Tab_OBS_Settings.SuspendLayout();
             SuspendLayout();
             // 
             // List_Servers
@@ -256,26 +266,6 @@
             resources.ApplyResources(Input_ServerAPIType, "Input_ServerAPIType");
             Input_ServerAPIType.Name = "Input_ServerAPIType";
             // 
-            // _Box_Settings
-            // 
-            resources.ApplyResources(_Box_Settings, "_Box_Settings");
-            _Box_Settings.Controls.Add(Input_DiscardOnExit);
-            _Box_Settings.Controls.Add(Input_OBSScene);
-            _Box_Settings.Controls.Add(Label_OBSStatus);
-            _Box_Settings.Controls.Add(_Text_UserAgent);
-            _Box_Settings.Controls.Add(Input_UserAgent);
-            _Box_Settings.Controls.Add(_Text_StopDelay);
-            _Box_Settings.Controls.Add(Input_StopRecordingDelay);
-            _Box_Settings.Controls.Add(Input_OBSDirectory);
-            _Box_Settings.Controls.Add(_Text_SaveFolder);
-            _Box_Settings.Controls.Add(_Text_OBSScene);
-            _Box_Settings.Controls.Add(Input_OBSPassword);
-            _Box_Settings.Controls.Add(_Text_OBSPassword);
-            _Box_Settings.Controls.Add(Input_OBSPort);
-            _Box_Settings.Controls.Add(_Text_OBSPort);
-            _Box_Settings.Name = "_Box_Settings";
-            _Box_Settings.TabStop = false;
-            // 
             // Input_DiscardOnExit
             // 
             resources.ApplyResources(Input_DiscardOnExit, "Input_DiscardOnExit");
@@ -390,13 +380,84 @@
             // 
             autoRecorderBindingSource.DataSource = typeof(AutoRecorder);
             // 
+            // BoxTab_Controls
+            // 
+            BoxTab_Controls.Controls.Add(Tab_OBS_Controls);
+            BoxTab_Controls.Controls.Add(Tab_SystemSettings);
+            BoxTab_Controls.Controls.Add(Tab_OBS_Settings);
+            resources.ApplyResources(BoxTab_Controls, "BoxTab_Controls");
+            BoxTab_Controls.Name = "BoxTab_Controls";
+            BoxTab_Controls.SelectedIndex = 0;
+            // 
+            // Tab_OBS_Controls
+            // 
+            Tab_OBS_Controls.Controls.Add(Button_Discard);
+            Tab_OBS_Controls.Controls.Add(Button_Stop);
+            Tab_OBS_Controls.Controls.Add(Button_Pause);
+            Tab_OBS_Controls.Controls.Add(_Text_OBSStatus);
+            Tab_OBS_Controls.Controls.Add(Label_OBSStatus);
+            Tab_OBS_Controls.Controls.Add(Label_SeekerStatus);
+            Tab_OBS_Controls.Controls.Add(_Text_SeekerFound);
+            resources.ApplyResources(Tab_OBS_Controls, "Tab_OBS_Controls");
+            Tab_OBS_Controls.Name = "Tab_OBS_Controls";
+            Tab_OBS_Controls.UseVisualStyleBackColor = true;
+            // 
+            // Button_Stop
+            // 
+            resources.ApplyResources(Button_Stop, "Button_Stop");
+            Button_Stop.Name = "Button_Stop";
+            Button_Stop.UseVisualStyleBackColor = true;
+            Button_Stop.Click += Button_Stop_Click;
+            // 
+            // Button_Pause
+            // 
+            resources.ApplyResources(Button_Pause, "Button_Pause");
+            Button_Pause.Name = "Button_Pause";
+            Button_Pause.UseVisualStyleBackColor = true;
+            Button_Pause.Click += Button_Pause_Click;
+            // 
+            // _Text_OBSStatus
+            // 
+            resources.ApplyResources(_Text_OBSStatus, "_Text_OBSStatus");
+            _Text_OBSStatus.Name = "_Text_OBSStatus";
+            // 
+            // Tab_SystemSettings
+            // 
+            Tab_SystemSettings.Controls.Add(Input_DiscardOnExit);
+            Tab_SystemSettings.Controls.Add(Input_StopRecordingDelay);
+            Tab_SystemSettings.Controls.Add(_Text_StopDelay);
+            Tab_SystemSettings.Controls.Add(_Text_UserAgent);
+            Tab_SystemSettings.Controls.Add(Input_UserAgent);
+            resources.ApplyResources(Tab_SystemSettings, "Tab_SystemSettings");
+            Tab_SystemSettings.Name = "Tab_SystemSettings";
+            Tab_SystemSettings.UseVisualStyleBackColor = true;
+            // 
+            // Tab_OBS_Settings
+            // 
+            Tab_OBS_Settings.Controls.Add(_Text_OBSPort);
+            Tab_OBS_Settings.Controls.Add(Input_OBSScene);
+            Tab_OBS_Settings.Controls.Add(Input_OBSPort);
+            Tab_OBS_Settings.Controls.Add(_Text_OBSPassword);
+            Tab_OBS_Settings.Controls.Add(Input_OBSPassword);
+            Tab_OBS_Settings.Controls.Add(_Text_OBSScene);
+            Tab_OBS_Settings.Controls.Add(Input_OBSDirectory);
+            Tab_OBS_Settings.Controls.Add(_Text_SaveFolder);
+            resources.ApplyResources(Tab_OBS_Settings, "Tab_OBS_Settings");
+            Tab_OBS_Settings.Name = "Tab_OBS_Settings";
+            Tab_OBS_Settings.UseVisualStyleBackColor = true;
+            // 
+            // Button_Discard
+            // 
+            resources.ApplyResources(Button_Discard, "Button_Discard");
+            Button_Discard.Name = "Button_Discard";
+            Button_Discard.UseVisualStyleBackColor = true;
+            Button_Discard.Click += Button_Discard_Click;
+            // 
             // TrayMenu
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(Label_SeekerStatus);
-            Controls.Add(_Text_SeekerFound);
-            Controls.Add(_Box_Settings);
+            Controls.Add(BoxTab_Controls);
             Controls.Add(_Box_ServerData);
             Controls.Add(_Box_ServerStatus);
             Controls.Add(Button_DelServer);
@@ -409,13 +470,17 @@
             _Box_ServerStatus.PerformLayout();
             _Box_ServerData.ResumeLayout(false);
             _Box_ServerData.PerformLayout();
-            _Box_Settings.ResumeLayout(false);
-            _Box_Settings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Input_StopRecordingDelay).EndInit();
             ((System.ComponentModel.ISupportInitialize)Input_OBSPort).EndInit();
             ((System.ComponentModel.ISupportInitialize)autoRecorderBindingSource).EndInit();
+            BoxTab_Controls.ResumeLayout(false);
+            Tab_OBS_Controls.ResumeLayout(false);
+            Tab_OBS_Controls.PerformLayout();
+            Tab_SystemSettings.ResumeLayout(false);
+            Tab_SystemSettings.PerformLayout();
+            Tab_OBS_Settings.ResumeLayout(false);
+            Tab_OBS_Settings.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
 
         }
 
@@ -439,7 +504,6 @@
 		private System.Windows.Forms.Button Button_DeleteServerKeyword;
 		private System.Windows.Forms.ListBox List_ServerKeywords;
 		private System.Windows.Forms.Label _Text_DSKeywords;
-		private System.Windows.Forms.GroupBox _Box_Settings;
 		private System.Windows.Forms.NumericUpDown Input_OBSPort;
 		private System.Windows.Forms.Label _Text_OBSPort;
 		private System.Windows.Forms.TextBox Input_OBSPassword;
@@ -467,6 +531,14 @@
 		private System.Windows.Forms.Label Label_OBSStatus;
         private System.Windows.Forms.ComboBox Input_OBSScene;
         private System.Windows.Forms.CheckBox Input_DiscardOnExit;
+        private System.Windows.Forms.TabControl BoxTab_Controls;
+        private System.Windows.Forms.TabPage Tab_OBS_Controls;
+        private System.Windows.Forms.TabPage Tab_OBS_Settings;
+        private System.Windows.Forms.TabPage Tab_SystemSettings;
+        private System.Windows.Forms.Label _Text_OBSStatus;
+        private System.Windows.Forms.Button Button_Pause;
+        private System.Windows.Forms.Button Button_Stop;
+        private System.Windows.Forms.Button Button_Discard;
     }
 }
 

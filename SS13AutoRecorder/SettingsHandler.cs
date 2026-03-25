@@ -22,6 +22,7 @@ namespace SS13AutoRecorder
 
 		public static void ReadServerData()
 		{
+			// TODO: Convert to using
 			FileStream storedServers = null;
 			try
 			{

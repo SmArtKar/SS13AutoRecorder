@@ -13,6 +13,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace SS13AutoRecorder
 {
@@ -25,8 +26,8 @@ namespace SS13AutoRecorder
         private string seekerIP;
         private DateTime? lastSeenSeeker;
         private int previousRoundID = -1;
-        private ServerStatus lastStatus;
-        private ServerData lastServer;
+        internal ServerStatus? lastStatus;
+        internal ServerData lastServer;
 
         public TrayMenu()
         {
@@ -47,6 +48,7 @@ namespace SS13AutoRecorder
             OBSHandler.Connected += OnOBSConnected;
             OBSHandler.Disconnected += OnOBSDisconnected;
             OBSHandler.SceneListChanged += OnOBSScenesChanged;
+            OBSHandler.RecordStateChanged += UpdateOBSStatus;
         }
 
         private void TrayMenu_Load(object sender, EventArgs e)
@@ -108,15 +110,10 @@ namespace SS13AutoRecorder
             if (connectedServer == null || maybeStatus == null)
             {
                 OutputState? state = OBSHandler.RecordState;
-                bool wasRecording =
-                    state == OutputState.OBS_WEBSOCKET_OUTPUT_STARTING ||
-                    state == OutputState.OBS_WEBSOCKET_OUTPUT_STARTED ||
-                    state == OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED ||
-                    state == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED;
-
+                bool wasRecording = state?.IsActive(includeStarting: true) ?? false;
                 if (!wasRecording || previousRoundID == -1 || lastSeenSeeker == null)
                     return;
-                
+
                 if (DateTime.Now.Subtract(lastSeenSeeker.Value).TotalMilliseconds < SettingsHandler.settings.StopRecordingDelay * 100)
                     return;
 
@@ -132,23 +129,21 @@ namespace SS13AutoRecorder
 
             ServerStatus status = maybeStatus.Value;
             OutputState? initialState = OBSHandler.RecordState;
-            bool isRecording =
-                initialState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTING ||
-                initialState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTED ||
-                initialState == OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED;
-
-            if ((isRecording || initialState == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED) && status.gamestate == Gamestate.Roundend)
+            bool isRecording = initialState?.IsActive() ?? false;
+            if (isRecording && status.gamestate == Gamestate.Roundend)
             {
+                lastStatus = status;
                 // TODO: Log roundend
                 StopRecording(lastServer?.Name);
                 previousRoundID = -1;
-                initialState = OBSHandler.RecordState;
-                if (
-                    initialState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTING || 
-                    initialState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTED || 
-                    initialState == OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED
-                )
-                    AutoRecorder.ErrorHandle(null, "Failed to stop recording upon roundend!");
+                // Async these out to give OBS a bit of time to think
+                _ = Task.Run(async () =>
+                {
+                    await Task.Delay(200);
+                    initialState = OBSHandler.RecordState;
+                    if (initialState?.IsActive() ?? false)
+                        AutoRecorder.ErrorHandle(null, "Failed to stop recording upon roundend!");
+                });
                 return;
             }
 
@@ -173,9 +168,13 @@ namespace SS13AutoRecorder
                 else if (initialState == OutputState.OBS_WEBSOCKET_OUTPUT_STOPPED)
                     OBSHandler.ToggleRecording();
 
-                OutputState? newState = OBSHandler.RecordState;
-                if (newState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTING && newState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTED)
-                    AutoRecorder.ErrorHandle(null, "Failed to start recording!");
+                _ = Task.Run(async () =>
+                {
+                    await Task.Delay(200);
+                    OutputState? newState = OBSHandler.RecordState;
+                    if (newState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTING && newState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTED)
+                        AutoRecorder.ErrorHandle(null, "Failed to start recording!");
+                });
                 return;
             }
 
@@ -183,35 +182,39 @@ namespace SS13AutoRecorder
                 return;
 
             // TODO: Log round change
-            if (isRecording || initialState == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED)
+            if (isRecording)
             {
                 // TODO: Log (missing) roundend
                 StopRecording(lastServer?.Name);
+                // Wait a bit before trying to continue to record, then check the connection again
+                System.Threading.Thread.Sleep(200);
+                if (!OBSHandler.IsConnected || !OBSHandler.RecordState.HasValue)
+                    return;
+
+                OutputState? preRecordState = OBSHandler.RecordState;
+                if (preRecordState?.IsActive() ?? false)
+                {
+                    AutoRecorder.ErrorHandle(null, "Failed to stop recording upon round change!");
+                    return;
+                }
+
             }
 
             lastServer = connectedServer;
             previousRoundID = status.roundID;
 
-            OutputState? preRecordState = OBSHandler.RecordState;
-            if (
-                preRecordState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTING || 
-                preRecordState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTED || 
-                preRecordState == OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED || 
-                preRecordState == null
-            )
-            {
-                AutoRecorder.ErrorHandle(null, "Failed to stop recording upon round change!");
-                return;
-            }
-
             OBSHandler.ChangeOBSScene(SettingsHandler.settings.ObsScene);
             OBSHandler.ToggleRecording();
-            OutputState? recordingState = OBSHandler.RecordState;
-            if (recordingState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTING && recordingState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTED)
-                AutoRecorder.ErrorHandle(null, "Failed to start recording!");
-            // Pause again if we were paused before
-            else if (initialState == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED)
-                OBSHandler.TogglePause();
+            _ = Task.Run(async () =>
+            {
+                await Task.Delay(200);
+                OutputState? recordingState = OBSHandler.RecordState;
+                if (recordingState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTING && recordingState != OutputState.OBS_WEBSOCKET_OUTPUT_STARTED)
+                    AutoRecorder.ErrorHandle(null, "Failed to start recording!");
+                // Pause again if we were paused before
+                else if (initialState == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED)
+                    OBSHandler.TogglePause();
+            });
         }
 
         public void StopRecording(string server = null, bool discard = false)
@@ -221,32 +224,100 @@ namespace SS13AutoRecorder
             if (savedPath == null || !File.Exists(savedPath))
                 return;
 
-            if (lastStatus.roundID == -1 || discard)
+            if (lastStatus == null || lastStatus?.roundID == -1 || discard)
             {
-                File.Delete(savedPath);
+                Task.Run(async () =>
+                {
+                    try
+                    {
+                        await WaitUntilFree(savedPath);
+                        File.Delete(savedPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        AutoRecorder.ErrorHandle(ex, String.Format("Failed to delete recording {0}: ", savedPath));
+                    }
+                });
                 return;
             }
 
             string extension = Path.GetExtension(savedPath);
-            server ??= lastStatus.version;
+            ServerStatus status = lastStatus.Value;
+            server ??= status.version;
             string filename;
             // Valid RIDs get round written in, invalid ones only get the map
-            if (lastStatus.roundID > 0)
-                filename = String.Format("{0} - Round {1} on {2}", server, lastStatus.roundID, lastStatus.mapName);
+            if (status.roundID > 0)
+                filename = String.Format("{0} - Round {1} on {2}", server, status.roundID, status.mapName);
             else
-                filename = String.Format("{0} - {1}", server, lastStatus.mapName);
+                filename = String.Format("{0} - {1}", server, status.mapName);
 
             string saveName = filename;
             int attempt = 1;
             while (File.Exists(SettingsHandler.settings.RecordingsFolder + "\\" + filename + extension))
-                if (lastStatus.roundID > 0)
+                if (status.roundID > 0)
                     saveName = String.Format("{0} (Part {1})", filename, attempt);
                 else
                     saveName = String.Format("{0}, Recording {1}", filename, attempt);
 
+            // Get rid of invalid symbols like slashes in /tg/station
+            saveName = string.Concat(saveName.Split(Path.GetInvalidFileNameChars()));
+
             DirectoryInfo targetDir = Directory.CreateDirectory(SettingsHandler.settings.RecordingsFolder);
-            // TODO: Error handling
-            File.Move(savedPath, SettingsHandler.settings.RecordingsFolder + "\\" + saveName + extension);
+            Task.Run(async () =>
+            {
+                try
+                {
+                    await WaitUntilFree(savedPath);
+                    File.Move(savedPath, SettingsHandler.settings.RecordingsFolder + "\\" + saveName + extension);
+                }
+                catch (Exception ex)
+                {
+                    AutoRecorder.ErrorHandle(
+                        ex, 
+                        String.Format("Failed to move recording {0} to {1}: ", 
+                        savedPath, 
+                        SettingsHandler.settings.RecordingsFolder + "\\" + saveName + extension
+                    ));
+                }
+            });
+        }
+
+        private async Task WaitUntilFree(string filepath)
+        {
+            bool continueAccessing = true;
+            int attemptNum = 1;
+            while (continueAccessing)
+            {
+                try
+                {
+                    using (FileStream testFileStream = File.Open(filepath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+                        if (testFileStream != null)
+                        {
+                            testFileStream.Close();
+                            continueAccessing = false;
+                        }
+                }
+                catch (IOException ex)
+                {
+                    const int ERROR_SHARING_VIOLATION = 32;
+                    const int ERROR_LOCK_VIOLATION = 33;
+
+                    int errorCode = Marshal.GetHRForException(ex) & ((1 << 16) - 1);
+                    // Non-file lock errors get thrown out
+                    if (errorCode != ERROR_SHARING_VIOLATION && errorCode != ERROR_LOCK_VIOLATION)
+                        throw;
+
+                    // Try for a minute, crash afterwards
+                    if (attemptNum > 300)
+                    {
+                        continueAccessing = false;
+                        continue;
+                    }
+
+                    attemptNum++;
+                    await Task.Delay(200);
+                }
+            }
         }
 
         private void OnOBSConnected(object sender, EventArgs e)
@@ -273,27 +344,35 @@ namespace SS13AutoRecorder
             Input_OBSScene.Invoke((MethodInvoker)(() => { if (!OBSHandler.IsConnected) Input_OBSScene.DataSource = null; }));
         }
 
-        public void UpdateOBSStatus(object sender = null, EventArgs e = null)
+        public void UpdateOBSStatus(object sender = null, RecordStateChangedEventArgs e = null)
         {
             if (!IsHandleCreated)
                 return;
 
             if (!OBSHandler.IsConnected)
             {
-                Label_OBSStatus.Invoke((MethodInvoker)(() => Label_OBSStatus.Text = "Offline"));
+                Invoke((MethodInvoker)(() => {
+                    Label_OBSStatus.Text = "Offline";
+                    Button_Stop.Visible = false;
+                    Button_Discard.Visible = false;
+                    Button_Pause.Visible = false;
+                }));
                 return;
             }
 
             string state = "Connected, Unknown";
+            bool displayButtons = false;
             switch (OBSHandler.RecordState)
             {
                 case OutputState.OBS_WEBSOCKET_OUTPUT_STARTING:
                     state = "Starting recording...";
+                    displayButtons = true;
                     break;
 
                 case OutputState.OBS_WEBSOCKET_OUTPUT_STARTED:
                 case OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED:
                     state = "Recording";
+                    displayButtons = true;
                     break;
 
                 case OutputState.OBS_WEBSOCKET_OUTPUT_STOPPING:
@@ -306,10 +385,18 @@ namespace SS13AutoRecorder
 
                 case OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED:
                     state = "Recording paused";
+                    displayButtons = true;
                     break;
             }
 
-            Label_OBSStatus.Invoke((MethodInvoker)(() => Label_OBSStatus.Text = state));
+            Invoke((MethodInvoker)(() =>
+            {
+                Label_OBSStatus.Text = state;
+                Button_Pause.Text = OBSHandler.RecordState == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED ? "Unpause" : "Pause";
+                Button_Stop.Visible = displayButtons;
+                Button_Discard.Visible = displayButtons;
+                Button_Pause.Visible = displayButtons;
+            }));
         }
 
         private void OnOBSScenesChanged(object sender, SceneListChangedEventArgs e)
@@ -436,238 +523,6 @@ namespace SS13AutoRecorder
                 Label_RoundDuration.Text = String.Format("{0}h, {1}m", hours, minutes);
             else
                 Label_RoundDuration.Text = String.Format("{0}m", minutes);
-        }
-
-        private void Input_ServerName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                Input_ServerName_Submit(sender, e);
-        }
-
-        private void Input_ServerName_Submit(object sender, EventArgs e)
-        {
-            if (selectedServer == null)
-            {
-                Input_ServerName.Text = string.Empty;
-                return;
-            }
-
-            if (selectedServer.Name == Input_ServerName.Text)
-                return;
-
-            if (ServerListing.Contains(Input_ServerName.Text))
-            {
-                MessageBox.Show("A server with this name already exists!", "Error", MessageBoxButtons.OK);
-                return;
-            }
-
-            selectedServer.Name = Input_ServerName.Text;
-            List_Servers.DataSource = null;
-            List_Servers.DataSource = ServerListing;
-            List_Servers.SelectedIndex = SettingsHandler.serverData.IndexOf(selectedServer);
-        }
-
-        private void Input_ServerIP_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                Input_ServerIP_Submit(sender, e);
-        }
-
-        private void Input_ServerIP_Submit(object sender, EventArgs e)
-        {
-            if (selectedServer == null)
-            {
-                Input_ServerIP.Text = string.Empty;
-                return;
-            }
-
-            selectedServer.ServerIP = Input_ServerIP.Text;
-            UpdateServerStatus();
-        }
-
-        private void Input_ServerPort_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                Input_ServerPort_Submit(sender, e);
-        }
-
-        private void Input_ServerPort_Submit(object sender, EventArgs e)
-        {
-            if (selectedServer == null)
-            {
-                Input_ServerPort.Value = 0;
-                return;
-            }
-
-            selectedServer.ServerPort = (int)Input_ServerPort.Value;
-            UpdateServerStatus();
-        }
-
-        private void Input_ServerAPIType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (selectedServer == null)
-            {
-                Input_ServerAPIType.SelectedIndex = 0;
-                return;
-            }
-
-            selectedServer.serverAPIType = AutoRecorder.ServerAPIs[AutoRecorder.ServerAPIs.Keys.ToList()[Input_ServerAPIType.SelectedIndex]];
-            if (IsHandleCreated)
-                UpdateServerStatus();
-        }
-
-        private void Button_AddServer_Click(object sender, EventArgs e)
-        {
-            ServerData newServer = new ServerData();
-
-            int newIndex = 1;
-            while (SettingsHandler.serverData.Any(x => x.Name == String.Format("New Server {0}", newIndex))) newIndex++;
-            newServer.Name = String.Format("New Server {0}", newIndex);
-            newServer.serverAPIType = typeof(ServerAPI_tg);
-
-            SettingsHandler.serverData.Add(newServer);
-            List_Servers.DataSource = null;
-            List_Servers.DataSource = ServerListing;
-            List_Servers.SelectedIndex = SettingsHandler.serverData.IndexOf(newServer);
-            selectedServer = newServer;
-            LoadServerData();
-            UpdateServerStatus();
-        }
-
-        private void Button_DelServer_Click(object sender, EventArgs e)
-        {
-            if (selectedServer == null)
-                return;
-
-            SettingsHandler.serverData.Remove(selectedServer);
-            List_Servers.DataSource = null;
-            List_Servers.DataSource = ServerListing;
-            List_Servers.SelectedIndex = -1;
-            selectedServer = null;
-        }
-
-        private void Button_AddServerKeyword_Click(object sender, EventArgs e)
-        {
-            if (selectedServer == null || Input_ServerKeyword.Text == string.Empty || selectedServer.DreamseekerIPs.Contains(Input_ServerKeyword.Text))
-                return;
-            selectedServer.DreamseekerIPs.Add(Input_ServerKeyword.Text);
-            List_ServerKeywords.DataSource = null;
-            List_ServerKeywords.DataSource = selectedServer?.DreamseekerIPs;
-            UpdateSeekerStatus();
-        }
-
-        private void Button_DeleteServerKeyword_Click(object sender, EventArgs e)
-        {
-            if (selectedServer == null || List_ServerKeywords.SelectedIndex == -1)
-                return;
-
-            selectedServer.DreamseekerIPs.RemoveAt(List_ServerKeywords.SelectedIndex);
-            List_ServerKeywords.DataSource = null;
-            List_ServerKeywords.DataSource = selectedServer?.DreamseekerIPs;
-            UpdateSeekerStatus();
-        }
-
-        private void Input_OBSPort_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                Input_OBSPort_Submit(sender, e);
-        }
-
-        private void Input_OBSPort_Submit(object sender, EventArgs e)
-        {
-            if (SettingsHandler.settings.ObsPort == Input_OBSPort.Value)
-                return;
-
-            SettingsHandler.settings.ObsPort = (int)Input_OBSPort.Value;
-            OBSHandler.ConnectOBS();
-        }
-
-        private void Input_OBSPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                Input_OBSPassword_Submit(sender, e);
-        }
-
-        private void Input_OBSPassword_Submit(object sender, EventArgs e)
-        {
-            if (SettingsHandler.settings.ObsPassword == Input_OBSPassword.Text)
-                return;
-
-            SettingsHandler.settings.ObsPassword = Input_OBSPassword.Text;
-            OBSHandler.ConnectOBS();
-        }
-
-        private void Input_StopRecordingDelay_ValueChanged(object sender, EventArgs e)
-        {
-            SettingsHandler.settings.StopRecordingDelay = (int)Input_StopRecordingDelay.Value;
-        }
-
-        private void Input_UserAgent_TextChanged(object sender, EventArgs e)
-        {
-            SettingsHandler.settings.UserAgent = Input_UserAgent.Text;
-        }
-
-        private void Input_OBSDirectory_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            using (FolderBrowserDialog fbd = new FolderBrowserDialog())
-            {
-                fbd.SelectedPath = SettingsHandler.settings.RecordingsFolder;
-                if (fbd.ShowDialog() == DialogResult.OK)
-                {
-                    SettingsHandler.settings.RecordingsFolder = fbd.SelectedPath;
-                    Input_OBSDirectory.Text = SettingsHandler.settings.RecordingsFolder;
-                }
-            }
-        }
-
-        private void Input_OBSDirectory_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                Input_OBSDirectory_Submit(sender, e);
-        }
-
-        private void Input_OBSDirectory_Submit(object sender, EventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(Input_OBSDirectory.Text))
-            {
-                Input_OBSDirectory.Text = SettingsHandler.settings.RecordingsFolder;
-                return;
-            }
-
-            // Easy way to check for path validity without it needing to exist
-            try
-            {
-                Path.GetFullPath(Input_OBSDirectory.Text);
-            }
-            catch (Exception ex)
-            {
-                if (ex is ArgumentException || ex is SecurityException || ex is PathTooLongException || ex is NotSupportedException)
-                    MessageBox.Show(String.Format("Invalid recordings directory: {0}", Input_OBSDirectory.Text), "Error", MessageBoxButtons.OK);
-                else
-                    AutoRecorder.ErrorHandle(ex);
-                Input_OBSDirectory.Text = SettingsHandler.settings.RecordingsFolder;
-                return;
-            }
-
-            SettingsHandler.settings.RecordingsFolder = Input_OBSDirectory.Text;
-        }
-
-        private void Input_OBSScene_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Input_OBSScene.DataSource == null)
-                return;
-
-            string sceneName = Input_OBSScene.SelectedItem as string;
-            if (sceneName == SettingsHandler.settings.ObsScene || sceneName == string.Empty)
-                return;
-
-            SettingsHandler.settings.ObsScene = sceneName;
-            OBSHandler.ChangeOBSScene(sceneName);
-        }
-
-        private void Input_DiscardOnExit_CheckedChanged(object sender, EventArgs e)
-        {
-            SettingsHandler.settings.DiscardOnQuit = Input_DiscardOnExit.Checked;
         }
     }
 }

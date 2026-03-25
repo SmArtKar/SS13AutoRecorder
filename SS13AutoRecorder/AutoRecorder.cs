@@ -27,6 +27,8 @@ namespace SS13AutoRecorder
 			.Where(x => x.GetMethod("APIName").Invoke(null, null) as string != string.Empty)
 			.ToDictionary(x => x.GetMethod("APIName").Invoke(null, null) as string, x => x);
 
+		private static TrayMenu mainMenu;
+
 		[STAThread]
 		static void Main()
 		{
@@ -39,7 +41,7 @@ namespace SS13AutoRecorder
 			Application.ApplicationExit += new EventHandler(OnApplicationExit);
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new TrayMenu());
+			Application.Run(mainMenu = new TrayMenu());
 		}
 		
 		/// <summary>
@@ -83,7 +85,11 @@ namespace SS13AutoRecorder
 		{
 			SettingsHandler.WriteServerData();
 			SettingsHandler.WriteSettingsData();
-			// TODO: Save last recording, add pref to toggle between saving/discarding?
+			if (mainMenu != null)
+			{
+				mainMenu.StopRecording(mainMenu.lastServer?.Name, discard: SettingsHandler.settings.DiscardOnQuit);
+				mainMenu = null;
+			}
 		}
 		
 		/// <summary>

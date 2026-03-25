@@ -129,5 +129,12 @@ namespace SS13AutoRecorder
 		}
 
 		public static void ChangeOBSScene(string newScene) => obsSocket.SetCurrentProgramScene(newScene);
+
+		public static bool IsActive(this OutputState outputState, bool includeStarting = false) 
+		{
+			if (includeStarting && outputState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTING)
+				return true;
+			return outputState == OutputState.OBS_WEBSOCKET_OUTPUT_STARTED || outputState == OutputState.OBS_WEBSOCKET_OUTPUT_PAUSED || outputState == OutputState.OBS_WEBSOCKET_OUTPUT_RESUMED;
+		}
 	}
 }
