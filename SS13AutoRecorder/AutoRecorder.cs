@@ -52,6 +52,10 @@ namespace SS13AutoRecorder
 		{
 			foreach (Process process in Process.GetProcessesByName("dreamseeker"))
 			{
+				// Loading popup
+				if (process.MainWindowTitle.Contains("BYOND: Your Game Is Starting"))
+					continue;
+
 				try
 				{
 					string[] processArgs = process.GetCommandLine().Split(["\" \""], StringSplitOptions.None);

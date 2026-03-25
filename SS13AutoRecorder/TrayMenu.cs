@@ -29,6 +29,9 @@ namespace SS13AutoRecorder
         internal ServerStatus? lastStatus;
         internal ServerData lastServer;
 
+        private readonly NotifyIcon trayIcon = new NotifyIcon();
+        private readonly ContextMenuStrip trayMenu = new ContextMenuStrip();
+
         public TrayMenu()
         {
             InitializeComponent();
@@ -53,6 +56,21 @@ namespace SS13AutoRecorder
 
         private void TrayMenu_Load(object sender, EventArgs e)
         {
+            trayIcon.Icon = this.Icon;
+            trayIcon.Visible = true;
+            trayIcon.Text = this.Text;
+            trayIcon.ContextMenuStrip = trayMenu;
+            trayIcon.DoubleClick += (s, _) =>
+            {
+                Show();
+                WindowState = FormWindowState.Normal;
+                Activate();
+            };
+
+            trayMenu.Items.Add("OBS: Offline", null, OnTrayOBSClick);
+            trayMenu.Items.Add("DreamSeeker: Offline", null, null);
+            trayMenu.Items.Add("Exit", null, ExitFromTray);
+
             UpdateSeekerStatus();
             UpdateOBSStatus();
             // Need to call it here as its async and will fail if the handle is not loaded yet
@@ -70,6 +88,37 @@ namespace SS13AutoRecorder
             recordingLoop.Start();
         }
 
+        private void OnTrayOBSClick(object sender, EventArgs e)
+        {
+            if (OBSHandler.RecordState?.IsActive() ?? false)
+                OBSHandler.TogglePause();
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            if (WindowState == FormWindowState.Minimized)
+                Hide();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing)
+            {
+                base.OnFormClosing(e);
+                return;
+            }
+
+            e.Cancel = true;
+            BeginInvoke((Action)(() => WindowState = FormWindowState.Minimized));
+        }
+
+        private void ExitFromTray(object sender, EventArgs e)
+        {
+            trayIcon.Visible = false;
+            Application.Exit();
+        }
+
         private void AssignServerListing(object sender, EventArgs e)
         {
             List_Servers.DataSource = null;
@@ -83,15 +132,16 @@ namespace SS13AutoRecorder
 
         public void UpdateSeekerStatus(object sender = null, EventArgs e = null)
         {
+            string connectionLabel = "Offline";
             seekerIP = AutoRecorder.GetDreamseekerIP();
-            if (String.IsNullOrEmpty(seekerIP))
+            if (!String.IsNullOrEmpty(seekerIP))
             {
-                Label_SeekerStatus.Text = "Offline";
-                return;
+                connectionLabel = String.Format("Connected to {0}", SettingsHandler.serverData.FirstOrDefault(x => x.MatchIP(seekerIP))?.Name ?? seekerIP);
+                lastSeenSeeker = DateTime.Now;
             }
 
-            Label_SeekerStatus.Text = String.Format("Connected to {0}", SettingsHandler.serverData.FirstOrDefault(x => x.MatchIP(seekerIP))?.Name ?? seekerIP);
-            lastSeenSeeker = DateTime.Now;
+            Label_SeekerStatus.Text = connectionLabel;
+            trayMenu.Items[1].Text = "DreamSeeker: " + connectionLabel;
         }
 
         private void ProcessRecorder(object sender, EventArgs e)
@@ -396,6 +446,7 @@ namespace SS13AutoRecorder
                 Button_Stop.Visible = displayButtons;
                 Button_Discard.Visible = displayButtons;
                 Button_Pause.Visible = displayButtons;
+                trayMenu.Items[0].Text = "OBS: " + state;
             }));
         }
 
