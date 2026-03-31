@@ -1,4 +1,6 @@
-﻿namespace SS13AutoRecorder
+﻿using System.Windows.Forms;
+
+namespace SS13AutoRecorder
 {
 	partial class TrayMenu
 	{
@@ -30,59 +32,60 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrayMenu));
-            List_Servers = new System.Windows.Forms.ListBox();
-            Input_ServerName = new System.Windows.Forms.TextBox();
-            _Text_Name = new System.Windows.Forms.Label();
-            Input_ServerIP = new System.Windows.Forms.TextBox();
-            _Text_IP = new System.Windows.Forms.Label();
-            _Text_Port = new System.Windows.Forms.Label();
-            Input_ServerPort = new System.Windows.Forms.NumericUpDown();
-            _Box_ServerStatus = new System.Windows.Forms.GroupBox();
-            Label_RoundDuration = new System.Windows.Forms.Label();
-            Label_MapName = new System.Windows.Forms.Label();
-            Label_GameState = new System.Windows.Forms.Label();
-            _Text_RoundDuration = new System.Windows.Forms.Label();
-            _Text_MapName = new System.Windows.Forms.Label();
-            _Text_GameState = new System.Windows.Forms.Label();
-            Label_RoundID = new System.Windows.Forms.Label();
-            _Text_RoundID = new System.Windows.Forms.Label();
-            Label_ServerStatus = new System.Windows.Forms.Label();
-            _Text_ServerStatus = new System.Windows.Forms.Label();
-            _Box_ServerData = new System.Windows.Forms.GroupBox();
-            _Text_DSKeywords = new System.Windows.Forms.Label();
-            Input_ServerKeyword = new System.Windows.Forms.TextBox();
-            Button_AddServerKeyword = new System.Windows.Forms.Button();
-            Button_DeleteServerKeyword = new System.Windows.Forms.Button();
-            List_ServerKeywords = new System.Windows.Forms.ListBox();
-            _Text_APIType = new System.Windows.Forms.Label();
-            Input_ServerAPIType = new System.Windows.Forms.ComboBox();
-            Input_DiscardOnExit = new System.Windows.Forms.CheckBox();
-            Input_OBSScene = new System.Windows.Forms.ComboBox();
-            Label_OBSStatus = new System.Windows.Forms.Label();
-            _Text_UserAgent = new System.Windows.Forms.Label();
-            Input_UserAgent = new System.Windows.Forms.TextBox();
-            _Text_StopDelay = new System.Windows.Forms.Label();
-            Input_StopRecordingDelay = new System.Windows.Forms.NumericUpDown();
-            Input_OBSDirectory = new System.Windows.Forms.TextBox();
-            _Text_SaveFolder = new System.Windows.Forms.Label();
-            _Text_OBSScene = new System.Windows.Forms.Label();
-            Input_OBSPassword = new System.Windows.Forms.TextBox();
-            _Text_OBSPassword = new System.Windows.Forms.Label();
-            Input_OBSPort = new System.Windows.Forms.NumericUpDown();
-            _Text_OBSPort = new System.Windows.Forms.Label();
-            Button_DelServer = new System.Windows.Forms.Button();
-            Button_AddServer = new System.Windows.Forms.Button();
-            _Text_SeekerFound = new System.Windows.Forms.Label();
-            Label_SeekerStatus = new System.Windows.Forms.Label();
-            autoRecorderBindingSource = new System.Windows.Forms.BindingSource(components);
-            BoxTab_Controls = new System.Windows.Forms.TabControl();
-            Tab_OBS_Controls = new System.Windows.Forms.TabPage();
-            Button_Stop = new System.Windows.Forms.Button();
-            Button_Pause = new System.Windows.Forms.Button();
-            _Text_OBSStatus = new System.Windows.Forms.Label();
-            Tab_SystemSettings = new System.Windows.Forms.TabPage();
-            Tab_OBS_Settings = new System.Windows.Forms.TabPage();
-            Button_Discard = new System.Windows.Forms.Button();
+            List_Servers = new ListBox();
+            Input_ServerName = new TextBox();
+            _Text_Name = new Label();
+            Input_ServerIP = new TextBox();
+            _Text_IP = new Label();
+            _Text_Port = new Label();
+            Input_ServerPort = new NumericUpDown();
+            _Box_ServerStatus = new GroupBox();
+            Label_RoundDuration = new Label();
+            Label_MapName = new Label();
+            Label_GameState = new Label();
+            _Text_RoundDuration = new Label();
+            _Text_MapName = new Label();
+            _Text_GameState = new Label();
+            Label_RoundID = new Label();
+            _Text_RoundID = new Label();
+            Label_ServerStatus = new Label();
+            _Text_ServerStatus = new Label();
+            _Box_ServerData = new GroupBox();
+            _Text_DSKeywords = new Label();
+            Input_ServerKeyword = new TextBox();
+            Button_AddServerKeyword = new Button();
+            Button_DeleteServerKeyword = new Button();
+            List_ServerKeywords = new ListBox();
+            _Text_APIType = new Label();
+            Input_ServerAPIType = new ComboBox();
+            Input_DiscardOnExit = new CheckBox();
+            Input_OBSScene = new ComboBox();
+            Label_OBSStatus = new Label();
+            _Text_UserAgent = new Label();
+            Input_UserAgent = new TextBox();
+            _Text_StopDelay = new Label();
+            Input_StopRecordingDelay = new NumericUpDown();
+            Input_OBSDirectory = new TextBox();
+            _Text_SaveFolder = new Label();
+            _Text_OBSScene = new Label();
+            Input_OBSPassword = new TextBox();
+            _Text_OBSPassword = new Label();
+            Input_OBSPort = new NumericUpDown();
+            _Text_OBSPort = new Label();
+            Button_DelServer = new Button();
+            Button_AddServer = new Button();
+            _Text_SeekerFound = new Label();
+            Label_SeekerStatus = new Label();
+            autoRecorderBindingSource = new BindingSource(components);
+            BoxTab_Controls = new TabControl();
+            Tab_OBS_Controls = new TabPage();
+            Button_Discard = new Button();
+            Button_Stop = new Button();
+            Button_Pause = new Button();
+            _Text_OBSStatus = new Label();
+            Tab_SystemSettings = new TabPage();
+            Tab_OBS_Settings = new TabPage();
+            ToolTip = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)Input_ServerPort).BeginInit();
             _Box_ServerStatus.SuspendLayout();
             _Box_ServerData.SuspendLayout();
@@ -228,6 +231,7 @@
             // 
             resources.ApplyResources(_Text_DSKeywords, "_Text_DSKeywords");
             _Text_DSKeywords.Name = "_Text_DSKeywords";
+            ToolTip.SetToolTip(_Text_DSKeywords, resources.GetString("_Text_DSKeywords.ToolTip"));
             // 
             // Input_ServerKeyword
             // 
@@ -262,7 +266,7 @@
             // 
             // Input_ServerAPIType
             // 
-            Input_ServerAPIType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            Input_ServerAPIType.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(Input_ServerAPIType, "Input_ServerAPIType");
             Input_ServerAPIType.Name = "Input_ServerAPIType";
             // 
@@ -275,7 +279,7 @@
             // 
             // Input_OBSScene
             // 
-            Input_OBSScene.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            Input_OBSScene.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(Input_OBSScene, "Input_OBSScene");
             Input_OBSScene.Name = "Input_OBSScene";
             // 
@@ -402,6 +406,13 @@
             Tab_OBS_Controls.Name = "Tab_OBS_Controls";
             Tab_OBS_Controls.UseVisualStyleBackColor = true;
             // 
+            // Button_Discard
+            // 
+            resources.ApplyResources(Button_Discard, "Button_Discard");
+            Button_Discard.Name = "Button_Discard";
+            Button_Discard.UseVisualStyleBackColor = true;
+            Button_Discard.Click += Button_Discard_Click;
+            // 
             // Button_Stop
             // 
             resources.ApplyResources(Button_Stop, "Button_Stop");
@@ -446,17 +457,10 @@
             Tab_OBS_Settings.Name = "Tab_OBS_Settings";
             Tab_OBS_Settings.UseVisualStyleBackColor = true;
             // 
-            // Button_Discard
-            // 
-            resources.ApplyResources(Button_Discard, "Button_Discard");
-            Button_Discard.Name = "Button_Discard";
-            Button_Discard.UseVisualStyleBackColor = true;
-            Button_Discard.Click += Button_Discard_Click;
-            // 
             // TrayMenu
             // 
             resources.ApplyResources(this, "$this");
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(BoxTab_Controls);
             Controls.Add(_Box_ServerData);
             Controls.Add(_Box_ServerStatus);
@@ -539,6 +543,7 @@
         private System.Windows.Forms.Button Button_Pause;
         private System.Windows.Forms.Button Button_Stop;
         private System.Windows.Forms.Button Button_Discard;
+        private ToolTip ToolTip;
     }
 }
 

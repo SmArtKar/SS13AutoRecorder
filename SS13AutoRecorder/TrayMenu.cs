@@ -67,6 +67,7 @@ namespace SS13AutoRecorder
                 Activate();
             };
 
+            trayMenu.Items.Add("Open", null, OnOpenTrayClick);
             trayMenu.Items.Add("OBS: Offline", null, OnTrayOBSClick);
             trayMenu.Items.Add("DreamSeeker: Offline", null, null);
             trayMenu.Items.Add("Exit", null, ExitFromTray);
@@ -86,6 +87,13 @@ namespace SS13AutoRecorder
             recordingLoop.Interval = 5000;
             recordingLoop.Tick += new EventHandler(ProcessRecorder);
             recordingLoop.Start();
+        }
+
+        private void OnOpenTrayClick(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+            Activate();
         }
 
         private void OnTrayOBSClick(object sender, EventArgs e)
@@ -295,13 +303,25 @@ namespace SS13AutoRecorder
             ServerStatus status = lastStatus.Value;
             server ??= status.version;
             string filename;
-            // Valid RIDs get round written in, invalid ones only get the map
-            if (status.roundID > 0)
-                filename = String.Format("{0} - Round {1} on {2}", server, status.roundID, status.mapName);
-            else
-                filename = String.Format("{0} - {1}", server, status.mapName);
 
-            string saveName = filename;
+            // Shiptest/pentest use /tg/ schema but don't respond with a map name as they don't have dedicated maps
+            if (status.mapName != string.Empty && status.mapName != "Error")
+            {
+                // Valid RIDs get round written in, invalid ones only get the map
+                if (status.roundID > 0)
+                    filename = String.Format("{0} - Round {1} on {2}", server, status.roundID, status.mapName);
+                else
+                    filename = String.Format("{0} - {1}", server, status.mapName);
+            }
+            else
+            {
+                if (status.roundID > 0)
+                    filename = String.Format("{0} - Round {1}", server, status.roundID);
+                else
+                    filename = server;
+            }
+
+                string saveName = filename;
             int attempt = 1;
             while (File.Exists(SettingsHandler.settings.RecordingsFolder + "\\" + filename + extension))
                 if (status.roundID > 0)

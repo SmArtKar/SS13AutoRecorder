@@ -325,159 +325,6 @@
   <data name="_Box_ServerStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;Label_RoundDuration.Name" xml:space="preserve">
-    <value>Label_RoundDuration</value>
-  </data>
-  <data name="&gt;&gt;Label_RoundDuration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_RoundDuration.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;Label_RoundDuration.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label_MapName.Name" xml:space="preserve">
-    <value>Label_MapName</value>
-  </data>
-  <data name="&gt;&gt;Label_MapName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_MapName.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;Label_MapName.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label_GameState.Name" xml:space="preserve">
-    <value>Label_GameState</value>
-  </data>
-  <data name="&gt;&gt;Label_GameState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_GameState.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;Label_GameState.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundDuration.Name" xml:space="preserve">
-    <value>_Text_RoundDuration</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundDuration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundDuration.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundDuration.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_Text_MapName.Name" xml:space="preserve">
-    <value>_Text_MapName</value>
-  </data>
-  <data name="&gt;&gt;_Text_MapName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Text_MapName.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;_Text_MapName.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;_Text_GameState.Name" xml:space="preserve">
-    <value>_Text_GameState</value>
-  </data>
-  <data name="&gt;&gt;_Text_GameState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Text_GameState.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;_Text_GameState.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;Label_RoundID.Name" xml:space="preserve">
-    <value>Label_RoundID</value>
-  </data>
-  <data name="&gt;&gt;Label_RoundID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_RoundID.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;Label_RoundID.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundID.Name" xml:space="preserve">
-    <value>_Text_RoundID</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundID.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;_Text_RoundID.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;Label_ServerStatus.Name" xml:space="preserve">
-    <value>Label_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;Label_ServerStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_ServerStatus.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;Label_ServerStatus.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;_Text_ServerStatus.Name" xml:space="preserve">
-    <value>_Text_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;_Text_ServerStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Text_ServerStatus.Parent" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;_Text_ServerStatus.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="_Box_ServerStatus.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="_Box_ServerStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 198</value>
-  </data>
-  <data name="_Box_ServerStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_Box_ServerStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_Box_ServerStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 236</value>
-  </data>
-  <data name="_Box_ServerStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="_Box_ServerStatus.Text" xml:space="preserve">
-    <value>Server Status</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerStatus.Name" xml:space="preserve">
-    <value>_Box_ServerStatus</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerStatus.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerStatus.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="Label_RoundDuration.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -808,128 +655,47 @@
   <data name="&gt;&gt;_Text_ServerStatus.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="_Box_ServerStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="_Box_ServerStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 198</value>
+  </data>
+  <data name="_Box_ServerStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="_Box_ServerStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="_Box_ServerStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 236</value>
+  </data>
+  <data name="_Box_ServerStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="_Box_ServerStatus.Text" xml:space="preserve">
+    <value>Server Status</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.Name" xml:space="preserve">
+    <value>_Box_ServerStatus</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerStatus.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="_Box_ServerData.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;_Text_DSKeywords.Name" xml:space="preserve">
-    <value>_Text_DSKeywords</value>
-  </data>
-  <data name="&gt;&gt;_Text_DSKeywords.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Text_DSKeywords.Parent" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;_Text_DSKeywords.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerKeyword.Name" xml:space="preserve">
-    <value>Input_ServerKeyword</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerKeyword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerKeyword.Parent" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerKeyword.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Button_AddServerKeyword.Name" xml:space="preserve">
-    <value>Button_AddServerKeyword</value>
-  </data>
-  <data name="&gt;&gt;Button_AddServerKeyword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_AddServerKeyword.Parent" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;Button_AddServerKeyword.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Button_DeleteServerKeyword.Name" xml:space="preserve">
-    <value>Button_DeleteServerKeyword</value>
-  </data>
-  <data name="&gt;&gt;Button_DeleteServerKeyword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_DeleteServerKeyword.Parent" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;Button_DeleteServerKeyword.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;List_ServerKeywords.Name" xml:space="preserve">
-    <value>List_ServerKeywords</value>
-  </data>
-  <data name="&gt;&gt;List_ServerKeywords.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;List_ServerKeywords.Parent" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;List_ServerKeywords.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;_Text_APIType.Name" xml:space="preserve">
-    <value>_Text_APIType</value>
-  </data>
-  <data name="&gt;&gt;_Text_APIType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Text_APIType.Parent" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;_Text_APIType.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerAPIType.Name" xml:space="preserve">
-    <value>Input_ServerAPIType</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerAPIType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerAPIType.Parent" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;Input_ServerAPIType.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="_Box_ServerData.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="_Box_ServerData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 7</value>
-  </data>
-  <data name="_Box_ServerData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_Box_ServerData.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_Box_ServerData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 184</value>
-  </data>
-  <data name="_Box_ServerData.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="_Box_ServerData.Text" xml:space="preserve">
-    <value>Server Settings</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerData.Name" xml:space="preserve">
-    <value>_Box_ServerData</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerData.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerData.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_Box_ServerData.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="_Text_DSKeywords.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="_Text_DSKeywords.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="_Text_DSKeywords.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -948,6 +714,12 @@
   </data>
   <data name="_Text_DSKeywords.Text" xml:space="preserve">
     <value>DS Keywords:</value>
+  </data>
+  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>9, 18</value>
+  </metadata>
+  <data name="_Text_DSKeywords.ToolTip" xml:space="preserve">
+    <value>List of additional IPs or addresses through which DreamSeeker might connect.</value>
   </data>
   <data name="&gt;&gt;_Text_DSKeywords.Name" xml:space="preserve">
     <value>_Text_DSKeywords</value>
@@ -1138,6 +910,39 @@
   </data>
   <data name="&gt;&gt;Input_ServerAPIType.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="_Box_ServerData.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="_Box_ServerData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 7</value>
+  </data>
+  <data name="_Box_ServerData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="_Box_ServerData.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="_Box_ServerData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>599, 184</value>
+  </data>
+  <data name="_Box_ServerData.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_Box_ServerData.Text" xml:space="preserve">
+    <value>Server Settings</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.Name" xml:space="preserve">
+    <value>_Box_ServerData</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Box_ServerData.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Input_DiscardOnExit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1693,7 +1498,7 @@
     <value>5</value>
   </data>
   <metadata name="autoRecorderBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>115, 20</value>
   </metadata>
   <data name="Button_Discard.Location" type="System.Drawing.Point, System.Drawing">
     <value>195, 70</value>
@@ -1916,6 +1721,12 @@
   </data>
   <data name="&gt;&gt;autoRecorderBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolTip.Name" xml:space="preserve">
+    <value>ToolTip</value>
+  </data>
+  <data name="&gt;&gt;ToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>TrayMenu</value>

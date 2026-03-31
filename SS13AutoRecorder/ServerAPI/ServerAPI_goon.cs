@@ -47,7 +47,7 @@ namespace SS13AutoRecorder.ServerAPI
 				{
 					roundID = int.Parse(response["round_id"]), 
 					gamestate = gamestate,
-					mapName = response["map_name"],
+					mapName = response.ContainsKey("map_name") ? response["map_name"] : "Error",
 					roundDuration = roundDuration,
 					version = revision,
 					players = int.Parse(response["players"]),

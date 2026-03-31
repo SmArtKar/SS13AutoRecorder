@@ -25,7 +25,7 @@ namespace SS13AutoRecorder.ServerAPI
 				{
 					roundID = int.Parse(response["round_id"]),
 					gamestate = (Gamestate)int.Parse(response["gamestate"]),
-					mapName = response["map_name"],
+					mapName = response.ContainsKey("map_name") ? response["map_name"] : "Error",
 					roundDuration = int.Parse(response["round_duration"]),
 					version = response["version"],
 					players = int.Parse(response["players"]),
